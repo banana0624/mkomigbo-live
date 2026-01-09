@@ -17,3 +17,6 @@ Thumbs.db
 
 # secrets
 .env
+
+# secrets
+app/mkomigbo/private/config/db.php
