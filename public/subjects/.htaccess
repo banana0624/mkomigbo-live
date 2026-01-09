@@ -1,0 +1,23 @@
+# /public/subjects/.htaccess
+Options -MultiViews
+RewriteEngine On
+
+# ---------------------------------------------------------
+# 1) Serve direct files/dirs
+# ---------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ---------------------------------------------------------
+# 2) Pretty routes within /public/subjects/
+# ---------------------------------------------------------
+
+# /public/subjects/
+RewriteRule ^$ index.php [L,QSA]
+
+# /public/subjects/{subject-slug}/
+RewriteRule ^([a-z0-9_-]+)/?$ subject.php?slug=$1 [L,QSA]
+
+# /public/subjects/{subject-slug}/{page-slug}/
+RewriteRule ^([a-z0-9_-]+)/([a-z0-9_-]+)/?$ page.php?subject=$1&slug=$2 [L,QSA]

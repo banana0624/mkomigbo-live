@@ -1,0 +1,195 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * /public/staff/login.php
+ * Staff login (RBAC: staff_users + role)
+ */
+
+require_once __DIR__ . '/../_init.php';
+
+/* No-cache */
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+
+/* Helpers */
+if (!function_exists('h')) {
+  function h(string $v): string { return htmlspecialchars($v, ENT_QUOTES, 'UTF-8'); }
+}
+if (!function_exists('is_post_request')) {
+  function is_post_request(): bool { return ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'; }
+}
+if (!function_exists('redirect_to')) {
+  function redirect_to(string $url): void {
+    $url = str_replace(["\r","\n"], '', $url);
+    header('Location: ' . $url, true, 302);
+    exit;
+  }
+}
+
+/* Ensure auth helpers */
+if (!function_exists('mk_attempt_staff_login')) {
+  $auth = null;
+  if (defined('PRIVATE_PATH')) $auth = PRIVATE_PATH . '/functions/auth.php';
+  elseif (defined('APP_ROOT')) $auth = APP_ROOT . '/private/functions/auth.php';
+  if ($auth && is_file($auth)) require_once $auth;
+}
+
+/* Ensure session */
+if (function_exists('mk__session_start')) {
+  mk__session_start();
+} else {
+  if (session_status() !== PHP_SESSION_ACTIVE) { @session_start(); }
+}
+
+/* Safe return URL */
+$return = (string)($_GET['return'] ?? ($_POST['return'] ?? ''));
+$return = trim($return);
+
+$default_after_login = function_exists('url_for') ? url_for('/staff/') : '/staff/';
+$after_login = $default_after_login;
+
+if ($return !== '' && $return[0] === '/' && strpos($return, '//') !== 0 && strpos($return, "\n") === false && strpos($return, "\r") === false) {
+  $after_login = $return;
+}
+
+/* If already logged in and valid, redirect */
+$session_id = (isset($_SESSION['staff_user_id']) && is_numeric($_SESSION['staff_user_id'])) ? (int)$_SESSION['staff_user_id'] : 0;
+
+if ($session_id > 0) {
+  if (function_exists('mk_staff_session_validate')) {
+    if (mk_staff_session_validate()) {
+      redirect_to($after_login);
+    }
+  } elseif (function_exists('db')) {
+    try {
+      $pdo = db();
+      if ($pdo instanceof PDO) {
+        $st = $pdo->prepare("SELECT id, is_active FROM staff_users WHERE id = ? LIMIT 1");
+        $st->execute([$session_id]);
+        $row = $st->fetch(PDO::FETCH_ASSOC);
+
+        if ($row && (int)($row['is_active'] ?? 0) === 1) {
+          redirect_to($after_login);
+        }
+
+        unset($_SESSION['staff_user_id'], $_SESSION['staff_role'], $_SESSION['staff_email']);
+        @session_regenerate_id(true);
+      }
+    } catch (Throwable $e) {
+      // allow login page to render
+    }
+  }
+}
+
+/* POST handling */
+$errors = [];
+$email  = '';
+$flash  = '';
+
+if (!empty($_GET['loggedout'])) {
+  $flash = 'You have been logged out.';
+}
+
+if (is_post_request()) {
+  if (function_exists('csrf_require')) { csrf_require(); }
+
+  $email    = trim((string)($_POST['email'] ?? ($_POST['username'] ?? '')));
+  $email    = function_exists('mb_strtolower') ? mb_strtolower($email, 'UTF-8') : strtolower($email);
+  $password = (string)($_POST['password'] ?? '');
+
+  if ($email === '')    { $errors[] = 'Email is required.'; }
+  if ($password === '') { $errors[] = 'Password is required.'; }
+
+  if (!$errors) {
+    if (!function_exists('mk_attempt_staff_login')) {
+      $errors[] = 'Auth system is not loaded. Ensure /public/_init.php includes /private/functions/auth.php.';
+    } else {
+      $res = mk_attempt_staff_login($email, $password);
+
+      if (!is_array($res) || empty($res['ok'])) {
+        $errors[] = (is_array($res) && !empty($res['error']))
+          ? (string)$res['error']
+          : 'Login failed. Confirm your email and password match staff_users.';
+      } else {
+        redirect_to($after_login);
+      }
+    }
+  }
+}
+
+/* Render */
+$nav_active = 'login';
+$page_title = 'Staff Login';
+
+$staff_header = defined('APP_ROOT') ? (APP_ROOT . '/private/shared/staff_header.php') : null;
+$staff_footer = defined('APP_ROOT') ? (APP_ROOT . '/private/shared/staff_footer.php') : null;
+
+if (!$staff_header || !is_file($staff_header)) {
+  http_response_code(500);
+  header('Content-Type: text/plain; charset=utf-8');
+  echo "Staff header not found. APP_ROOT is not set correctly.\n";
+  exit;
+}
+
+require_once $staff_header;
+?>
+
+<div class="container" style="max-width: 560px;">
+  <div class="card" style="margin-top: 28px;">
+    <div class="card__body">
+      <h1 style="margin-top: 0;">Staff Login</h1>
+
+      <?php if ($flash): ?>
+        <div class="alert alert--success" role="alert">
+          <?= h($flash) ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if ($errors): ?>
+        <div class="alert alert--danger" role="alert">
+          <ul style="margin: 0; padding-left: 18px;">
+            <?php foreach ($errors as $e): ?>
+              <li><?= h($e) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php endif; ?>
+
+      <form method="post" action="<?= function_exists('url_for') ? h(url_for('/staff/login.php')) : '/staff/login.php' ?>" autocomplete="on">
+        <?php if (function_exists('csrf_token')): ?>
+          <input type="hidden" name="csrf_token" value="<?= h(csrf_token()) ?>">
+        <?php endif; ?>
+
+        <?php if ($return !== ''): ?>
+          <input type="hidden" name="return" value="<?= h($return) ?>">
+        <?php endif; ?>
+
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" value="<?= h($email) ?>" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <input class="input" type="password" id="password" name="password" autocomplete="current-password" required>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center; margin-top:14px;">
+          <button class="btn" type="submit">Login</button>
+          <a class="btn btn--ghost" href="<?= function_exists('url_for') ? h(url_for('/')) : '/' ?>">Home</a>
+        </div>
+      </form>
+
+      <p class="muted" style="margin:12px 0 0; line-height:1.6;">
+        Use the exact email stored in <code>staff_users</code>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<?php
+if ($staff_footer && is_file($staff_footer)) {
+  require_once $staff_footer;
+}
+?>

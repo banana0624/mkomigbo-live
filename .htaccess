@@ -1,0 +1,58 @@
+# =========================================================
+# public_html/.htaccess (CLEAN DISPATCHER + STATIC BYPASS)
+# =========================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ---------------------------------------------------------
+# 0) STATIC BYPASS (CRITICAL)
+#    If the request is for a real file/dir, serve it directly.
+# ---------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ---------------------------------------------------------
+# Diagnostic endpoint
+# ---------------------------------------------------------
+RewriteRule ^rewrite-test$ rewrite-test.php [L]
+
+# ---------------------------------------------------------
+# 1) Home
+# ---------------------------------------------------------
+RewriteRule ^$ public/index.php [L,QSA]
+
+# ---------------------------------------------------------
+# 2) Subjects
+#
+# We keep REAL FILE entrypoints, and route ALL virtual
+# /subjects/{slug}/... URLs into subjects/view.php
+# (view.php is the canonical router and decides what to load).
+# ---------------------------------------------------------
+RewriteRule ^subjects/?$                 public/subjects/index.php [L,QSA]
+RewriteRule ^subjects/view\.php$         public/subjects/view.php  [L,NC,QSA]
+RewriteRule ^subjects/subject\.php$      public/subjects/subject.php [L,NC,QSA]
+RewriteRule ^subjects/page\.php$         public/subjects/page.php  [L,NC,QSA]
+
+# Virtual subject routes (e.g. /subjects/history/ or /subjects/history/intro/)
+RewriteRule ^subjects/.+                 public/subjects/view.php  [L,QSA]
+
+# ---------------------------------------------------------
+# 3) Other modules (route into /public/<module>/... directly)
+# ---------------------------------------------------------
+RewriteRule ^contributors/?(.*)$   public/contributors/$1   [L,NC,QSA]
+RewriteRule ^platforms/?(.*)$      public/platforms/$1      [L,NC,QSA]
+RewriteRule ^staff/?(.*)$          public/staff/$1          [L,NC,QSA]
+RewriteRule ^igbo-calendar/?(.*)$  public/igbo-calendar/$1  [L,NC,QSA]
+
+# ---------------------------------------------------------
+# 4) Final fallback
+# ---------------------------------------------------------
+RewriteRule ^ public/index.php [L,QSA]
+</IfModule>
+
+ErrorDocument 404 /404.shtml

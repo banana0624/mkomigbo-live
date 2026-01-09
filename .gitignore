@@ -1,0 +1,19 @@
+# logs / runtime
+error_log
+php-errors.log
+logs/
+app/mkomigbo/logs/
+*.log
+*.log.*
+*.jsonl
+
+# cache
+tmp/
+cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# secrets
+.env

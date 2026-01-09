@@ -1,0 +1,16 @@
+# /public/.htaccess (MINIMAL, NON-INTERFERING)
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^lib/ - [L]
+
+# Serve existing files/dirs
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Default fallback for /public/ only
+RewriteRule ^ index.php [L,QSA]
+</IfModule>

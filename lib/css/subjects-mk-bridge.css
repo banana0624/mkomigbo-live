@@ -1,0 +1,176 @@
+/* /public/lib/css/subjects-mk-bridge.css
+   Bridges the premium homepage card/grid styles to the mk-* markup
+   used by /public/subjects/index.php.
+
+   Goal:
+   - 4 columns desktop (19 subjects = 4 cols, ~5 rows)
+   - correct logo/icon sizing
+   - premium cards, hover, pills, hero styling
+*/
+
+:root{
+  --ink:#111;
+  --muted:#6c757d;
+  --line:rgba(0,0,0,.10);
+  --line-strong:rgba(0,0,0,.22);
+  --card:#fff;
+  --shadow:0 12px 28px rgba(0,0,0,.05);
+  --shadow-hover:0 18px 36px rgba(0,0,0,.08);
+  --radius-xl:20px;
+  --radius-lg:18px;
+  --radius-md:16px;
+}
+
+body{ background: rgba(0,0,0,.015); color:var(--ink); }
+.mk-muted{ color:var(--muted); }
+
+/* Breadcrumb */
+.mk-crumbs{
+  margin: 6px 0 14px;
+  font-size: 14px;
+  opacity: .9;
+}
+.mk-crumbs a{ text-decoration:none; }
+.mk-crumbs__sep{ margin: 0 6px; opacity:.55; }
+
+/* Hero */
+.mk-hero{
+  border:1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), #fff);
+  box-shadow: 0 20px 55px rgba(0,0,0,.10);
+  overflow:hidden;
+  position:relative;
+}
+.mk-hero__bar{ height: 8px; background:#111; opacity:.88; }
+.mk-hero__inner{ padding: 22px 18px 18px; }
+.mk-hero__title{
+  margin:0 0 10px;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  line-height:1.06;
+  letter-spacing:-0.02em;
+}
+.mk-hero__subtitle{ margin:0; max-width: 88ch; line-height:1.75; }
+
+/* Grid: 4 columns desktop */
+.mk-grid.mk-grid--subjects{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1100px){
+  .mk-grid.mk-grid--subjects{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 780px){
+  .mk-grid.mk-grid--subjects{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 440px){
+  .mk-grid.mk-grid--subjects{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.mk-card.mk-subject-card{
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  display:flex;
+  flex-direction:column;
+  min-height: 170px;
+}
+.mk-card.mk-subject-card:hover{
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+.mk-card__bar{ height: 7px; background: var(--accent, #111); }
+.mk-card__link{ text-decoration:none; color:inherit; display:block; height:100%; }
+.mk-card__body{ padding: 14px; display:flex; flex-direction:column; gap:10px; flex:1; }
+
+.mk-subject-card__top{ display:flex; gap:12px; align-items:flex-start; }
+
+/* Icon sizing (your #1 requirement) */
+.mk-subject-card__logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,0.02);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex: 0 0 auto;
+  position:relative;
+}
+.mk-subject-card__logo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+  pointer-events:none;
+  opacity:.35;
+}
+.mk-subject-card__logo img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.mk-subject-card__initial{
+  font-weight: 900;
+  letter-spacing:-0.02em;
+  color: var(--accent, #111);
+  font-size: 1.1rem;
+}
+
+.mk-subject-card__title{
+  margin: 2px 0 6px;
+  font-size: 1.1rem;
+  line-height:1.2;
+  letter-spacing:-0.01em;
+}
+.mk-subject-card__slug{ font-size:.9rem; margin-top:-2px; }
+
+.mk-subject-card__desc{
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Pills / meta */
+.mk-card__meta{
+  margin-top:auto;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.mk-pill{
+  display:inline-block;
+  padding: 4px 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 999px;
+  background: #fff;
+  font-size: .85rem;
+  color:#495057;
+}
+
+/* Alerts (if your UI doesn't already style mk-alert) */
+.mk-alert{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+}
+.mk-alert--danger{
+  border-color: rgba(176,0,0,.25);
+  background: rgba(176,0,0,.06);
+  color:#b02a37;
+}

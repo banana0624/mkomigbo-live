@@ -1,0 +1,120 @@
+# ======================================================================
+# Mkomigbo - public_html/.htaccess
+# Robust, production-safe defaults for Apache + PHP hosting
+# - Canonical host + HTTPS
+# - Clean URLs: /subjects/ -> subjects.php, /platforms/ -> platforms.php, etc.
+# - Static asset caching
+# - Security headers (safe subset)
+# - Blocks access to sensitive files
+# ======================================================================
+
+# ----------------------------
+# 0) Safety / prerequisites
+# ----------------------------
+Options -Indexes
+DirectoryIndex index.php
+
+# If mod_rewrite isn't available, stop here safely.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ----------------------------
+# 1) Canonical HTTPS + host
+# ----------------------------
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Canonical host (uncomment if you want to enforce www or non-www)
+# Example: enforce non-www (mkomigbo.com)
+RewriteCond %{HTTP_HOST} ^www\.mkomigbo\.com$ [NC]
+RewriteRule ^ https://mkomigbo.com%{REQUEST_URI} [R=301,L]
+
+# ----------------------------
+# 2) Block sensitive files
+# ----------------------------
+# Never serve env/config/logs/git/composer artifacts
+RewriteRule (^|/)\.env$ - [F,L]
+RewriteRule (^|/)\.git - [F,L]
+RewriteRule (^|/)composer\.(json|lock)$ - [F,L]
+RewriteRule (^|/)composer\.phar$ - [F,L]
+RewriteRule (^|/)php-errors\.log$ - [F,L]
+RewriteRule (^|/)error_log$ - [F,L]
+
+# Block direct access to app internals
+RewriteRule ^app/ - [F,L]
+RewriteRule ^private/ - [F,L]
+RewriteRule ^vendor/ - [F,L]
+RewriteRule ^logs/ - [F,L]
+RewriteRule ^docs/ - [F,L]
+
+# ----------------------------
+# 3) Serve existing files/dirs directly
+# ----------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ----------------------------
+# 4) Clean URL routes -> your existing PHP files
+# ----------------------------
+# Home
+RewriteRule ^$ index.php [L]
+
+# Primary sections (you listed these PHP entry points)
+RewriteRule ^subjects/?$ subjects.php [L,NC]
+RewriteRule ^platforms/?$ platforms.php [L,NC]
+RewriteRule ^contributors/?$ contribotors.php [L,NC]   # NOTE: your filename is "contribotors.php"
+RewriteRule ^staff/?$ staff.php [L,NC]
+RewriteRule ^pages/?$ pages.php [L,NC]
+RewriteRule ^page-files/?$ page_files.php [L,NC]
+RewriteRule ^igbo-calendar/?$ igbo-calendar.php [L,NC]
+RewriteRule ^health/?$ health.php [L,NC]
+
+# If you also want /404 to show 404.shtml
+RewriteRule ^404/?$ 404.shtml [L,NC]
+
+# ----------------------------
+# 5) Fallback: anything else -> 404 handler
+# ----------------------------
+RewriteRule ^ 404.shtml [L]
+
+</IfModule>
+
+# ----------------------------
+# 6) Error pages
+# ----------------------------
+ErrorDocument 404 /404.shtml
+
+# ----------------------------
+# 7) Compression (if available)
+# ----------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ----------------------------
+# 8) Browser caching for static assets
+# ----------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 180 days"
+</IfModule>
+
+# ----------------------------
+# 9) Security headers (safe subset; avoid breaking embeds)
+# ----------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # HSTS only if HTTPS is stable (it is for you)
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>

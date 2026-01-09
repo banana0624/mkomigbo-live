@@ -1,0 +1,66 @@
+/* =========================================================
+   Subjects & Subject pages – Mkomigbo
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Subjects grid
+--------------------------------------------------------- */
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.subject-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.subject-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.subject-card-slug {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------------------------------------------------------
+   Subject page layout
+--------------------------------------------------------- */
+
+.subject-page {
+  max-width: 900px;
+}
+
+.subject-page p {
+  max-width: 70ch;
+}
+
+/* Pages list */
+.subject-pages {
+  margin-top: 24px;
+}
+
+.subject-pages ul {
+  padding-left: 18px;
+}
+
+.subject-pages li {
+  margin-bottom: 6px;
+}

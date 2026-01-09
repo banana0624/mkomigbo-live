@@ -1,0 +1,614 @@
+/* =========================================================
+   /public/lib/css/staff.css
+   Staff-only styles layered on top of ui.css
+   (Aligned to staff_header.php markup: .site-nav__link, .staff-subnav__link)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+  Optional scope helper
+--------------------------------------------------------- */
+body.staff {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* =========================================================
+   STAFF HEADER – SOLID CONTRAST FIX
+   Ensures legible nav links on light/glass backgrounds
+   (Staff-only, does NOT affect public header)
+========================================================= */
+
+/* Force a solid staff header surface */
+body.staff .site-header {
+  background: #0f172a;               /* slate-900 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: none;             /* remove glass blur */
+}
+
+/* Primary nav links: near-white, high contrast */
+body.staff .site-header .site-nav__link {
+  color: #f8fafc;                    /* slate-50 */
+  opacity: 0.95;
+}
+
+/* Hover: brighter, but controlled */
+body.staff .site-header .site-nav__link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active link: clearly visible pill */
+body.staff .site-header .site-nav__link.is-active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+}
+
+/* Brand text balance */
+body.staff .site-header .brand__title {
+  color: #ffffff;
+}
+body.staff .site-header .brand__sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Danger / logout stays visible */
+body.staff .site-header .site-nav__link--danger {
+  color: #fee2e2;
+}
+body.staff .site-header .site-nav__link--danger:hover {
+  background: rgba(220, 38, 38, 0.25);
+}
+
+/* View site + Logout also stay bright */
+body.staff .site-header .site-nav__link--danger {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+/* Brand text also slightly brighter for balance */
+body.staff .site-header .brand__title {
+  color: rgba(255, 255, 255, 0.98);
+}
+body.staff .site-header .brand__sub {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Primary nav matches markup: .site-nav + .site-nav__link */
+body.staff .site-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+body.staff .site-nav__spacer {
+  flex: 1 1 auto;
+}
+
+body.staff .site-nav__link {
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(235, 245, 255, 0.80);
+  opacity: 1;
+  border: 1px solid transparent;
+}
+
+body.staff .site-nav__link:hover {
+  color: rgba(255, 255, 255, 0.93);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+body.staff .site-nav__link.is-active {
+  color: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.staff .site-nav__link--danger {
+  color: rgba(255, 235, 235, 0.92);
+  background: rgba(220, 38, 38, 0.16);
+  border-color: rgba(220, 38, 38, 0.28);
+}
+
+body.staff .site-nav__link--danger:hover {
+  background: rgba(220, 38, 38, 0.22);
+  border-color: rgba(220, 38, 38, 0.34);
+}
+
+/* Mobile toggle (exists in markup even if hidden on desktop) */
+body.staff .nav-toggle {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 8px 10px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+body.staff .nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* ---------------------------------------------------------
+  Staff sub-navigation (matches: .staff-subnav__row + .staff-subnav__link)
+--------------------------------------------------------- */
+body.staff .staff-subnav {
+  padding: 10px 0 14px;
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+body.staff .staff-subnav__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+body.staff .staff-subnav__link {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(255, 255, 255, 0.70);
+  text-decoration: none;
+  color: var(--fg);
+  opacity: 0.95;
+}
+
+body.staff .staff-subnav__link:hover {
+  background: rgba(13, 110, 253, 0.08);
+  border-color: rgba(13, 110, 253, 0.18);
+  opacity: 1;
+}
+
+body.staff .staff-subnav__link.is-active {
+  background: rgba(13, 110, 253, 0.12);
+  border-color: rgba(13, 110, 253, 0.22);
+  opacity: 1;
+}
+
+/* =========================================================
+  Layout utilities used across staff pages
+========================================================= */
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.row--between { justify-content: space-between; }
+.row--center  { justify-content: center; }
+.row--end     { justify-content: flex-end; }
+.row--top     { align-items: flex-start; }
+.row--tight   { gap: 8px; }
+
+.row > .grow {
+  flex: 1 1 auto;
+  min-width: 240px;
+}
+
+/* Divider line */
+.sep {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+.sep--tight { margin: 8px 0; }
+.sep--loose { margin: 16px 0; }
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(13, 110, 253, 0.06);
+  color: var(--fg);
+  font-size: 0.85rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pill--muted {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--muted);
+}
+
+.pill--good {
+  background: rgba(22, 163, 74, 0.10);
+  border-color: rgba(22, 163, 74, 0.25);
+}
+
+.pill--bad {
+  background: rgba(220, 38, 38, 0.10);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.pill__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.75;
+}
+
+/* ---------------------------------------------------------
+  Hero block
+--------------------------------------------------------- */
+.hero {
+  margin: 18px 0 14px;
+  padding: 18px;
+  border-radius: var(--radius, 16px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(
+    900px 260px at 20% -10%,
+    rgba(13, 110, 253, 0.18),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.hero__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero__title {
+  font-size: 1.35rem;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.hero__sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 78ch;
+}
+
+.hero__actions {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero__meta {
+  position: relative;
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------
+  Cards
+--------------------------------------------------------- */
+.card {
+  border-radius: var(--radius, 16px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.card__body { padding: 16px; }
+
+/* ---------------------------------------------------------
+  Forms
+--------------------------------------------------------- */
+.field { min-width: 220px; }
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.45;
+}
+
+.input:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* Checkbox row helper */
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------------------------------------------------------
+  Buttons
+--------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  user-select: none;
+}
+
+.btn:hover { background: rgba(13, 110, 253, 0.08); }
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn--primary:hover {
+  background: var(--brand-600, var(--brand));
+  filter: brightness(0.98);
+}
+
+.btn--danger {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+/* Keep danger readable on staff pages */
+body.staff .btn--danger {
+  color: #fff;
+  background: var(--danger);
+  border-color: transparent;
+}
+body.staff .btn--danger:hover { filter: brightness(0.95); }
+
+.btn--sm {
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+}
+
+/* Ghost button */
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+}
+.btn--ghost:hover {
+  background: rgba(13, 110, 253, 0.06);
+}
+
+/* Small input used in tables */
+.input--sm {
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------
+  Tables
+--------------------------------------------------------- */
+.table-wrap {
+  overflow: auto;
+  border-radius: var(--radius, 16px);
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap::-webkit-scrollbar { height: 10px; width: 10px; }
+.table-wrap::-webkit-scrollbar-thumb { background: rgba(31, 41, 51, 0.18); border-radius: 999px; }
+.table-wrap::-webkit-scrollbar-track { background: rgba(31, 41, 51, 0.06); }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: transparent;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.table th {
+  text-align: left;
+  font-weight: 700;
+  background: rgba(13, 110, 253, 0.08);
+  color: var(--fg);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.table tr:last-child td { border-bottom: 0; }
+
+body.staff .table tr:hover td { background: rgba(13, 110, 253, 0.05); }
+
+.table--tight th,
+.table--tight td { padding: 10px; }
+
+.td-actions { white-space: nowrap; }
+
+/* ---------------------------------------------------------
+  Alerts
+--------------------------------------------------------- */
+.alert {
+  padding: 12px 14px;
+  border-radius: var(--radius, 16px);
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.alert--success { border-color: rgba(22, 163, 74, 0.35); }
+.alert--danger  { border-color: rgba(220, 38, 38, 0.35); }
+
+/* ---------------------------------------------------------
+  Breadcrumbs
+--------------------------------------------------------- */
+.crumbs {
+  padding: 10px 12px;
+  border-radius: var(--radius, 16px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------------------------------------------------
+  Utilities
+--------------------------------------------------------- */
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+.hidden { display: none !important; }
+
+.strong { font-weight: 700; }
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+/* =========================================================
+   Sticky subnav offset fix
+========================================================= */
+:root { --staff-header-h: 64px; }
+
+body.staff .staff-subnav {
+  position: sticky;
+  top: var(--staff-header-h);
+  z-index: 50;
+}
+
+/* Anchor scrolling */
+body.staff :where(h1, h2, h3, [id]) {
+  scroll-margin-top: calc(var(--staff-header-h) + 64px);
+}
+
+/* Optional content width tweak for dense tables */
+body.staff .table { min-width: 720px; }
+
+/* =========================================================
+   Dark mode adjustments (keeps header readable; not too black)
+========================================================= */
+@media (prefers-color-scheme: dark) {
+  body.staff .site-header {
+    background: rgba(14, 18, 30, 0.78);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+  }
+
+  body.staff .staff-subnav {
+    background: rgba(14, 18, 30, 0.52);
+    border-bottom-color: rgba(255, 255, 255, 0.10);
+  }
+
+  body.staff .staff-subnav__link {
+    background: rgba(0, 0, 0, 0.22);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(235, 245, 255, 0.82);
+  }
+
+  body.staff .staff-subnav__link:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  body.staff .staff-subnav__link.is-active {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  body.staff .pill {
+    background: rgba(59, 130, 246, 0.16);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  body.staff .pill--muted {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(235, 245, 255, 0.72);
+  }
+
+  body.staff .table th {
+    background: rgba(59, 130, 246, 0.14);
+  }
+
+  body.staff .table-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.16);
+  }
+  body.staff .table-wrap::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* =========================================================
+   Responsive: collapse nav to toggle on small screens
+========================================================= */
+@media (max-width: 920px) {
+  body.staff .nav-toggle { display: inline-flex; }
+
+  body.staff .site-nav {
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(var(--staff-header-h, 64px) + 10px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(18, 24, 38, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow);
+  }
+
+  body.staff .site-nav.is-open { display: flex; }
+
+  body.staff .site-nav__spacer { display: none; }
+
+  body.staff .site-nav__link {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+}

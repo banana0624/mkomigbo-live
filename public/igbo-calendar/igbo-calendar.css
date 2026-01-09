@@ -1,0 +1,278 @@
+/* =========================================================
+   /public/igbo-calendar/igbo-calendar.css
+   Igbo Calendar — 4-column market grid (premium, centered)
+   ========================================================= */
+
+/* ---------- Layout ---------- */
+.mk-cal{ margin-top: 18px; }
+
+.mk-cal__note{
+  margin: 0 auto 12px;
+  max-width: 70%;
+}
+
+/* Month card */
+.mk-cal-month{
+  margin: 16px auto;
+  max-width: 70%;
+  border: 1px solid rgba(0,0,0,.20);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.mk-cal-month__head{
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0,0,0,.20);
+  background: rgba(0,0,0,.03);
+}
+
+.mk-cal-month__title{
+  margin: 0;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-size: 1.05rem;
+}
+
+.mk-cal-month__meta{ margin-top: 6px; font-size: .92rem; }
+
+/* Keep grid contained */
+.mk-cal-table-wrap{ overflow-x: hidden; }
+
+/* ---------- Grid table ---------- */
+.mk-cal-grid{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.mk-cal-grid th,
+.mk-cal-grid td{
+  border: 1px solid rgba(0,0,0,.28);
+  padding: 10px 10px;
+  vertical-align: top;
+}
+
+.mk-cal-grid th{
+  background: rgba(0,0,0,.05);
+  font-weight: 900;
+  text-align: left;
+}
+
+/* Empty cells */
+.mk-cal-empty{ background: rgba(0,0,0,.03); }
+
+/* ---------- Cell content ---------- */
+.mk-cal-cell{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mk-cal-cell__top{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.mk-cal-cell__day{ font-weight: 900; font-size: .95rem; }
+.mk-cal-cell__date{ font-size: .86rem; }
+
+/* Key/value area inside the cell */
+.mk-cal-kv{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .90rem;
+  line-height: 1.25;
+}
+
+/* ---------- TODAY indicator (single source of truth) ---------- */
+/* NOTE: this class may appear on <td> and/or inner cell */
+.mk-cal-cell--today{
+  border-radius: 12px;
+  outline: 2px solid rgba(17,17,17,.45);
+  outline-offset: -2px;
+  box-shadow: 0 0 0 4px rgba(255, 210, 90, .35);
+  background: linear-gradient(180deg, rgba(255, 239, 179, .55), rgba(255,255,255,1));
+}
+
+.mk-cal-today-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  background: rgba(255, 239, 179, .92);
+  border: 1px solid rgba(17,17,17,.18);
+  color: rgba(17,17,17,.92);
+}
+
+/* ---------- Legend (desktop only) ---------- */
+.mk-cal-legend{
+  margin-top: 8px;
+  font-size: .88rem;
+  opacity: .92;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.mk-cal-legend__dot{ opacity: .55; }
+.mk-cal-legend__item strong{ font-weight: 900; }
+
+@media (max-width: 900px){
+  .mk-cal-legend{ display: none; }
+}
+
+/* =========================================================
+   Moon UI (sprite is primary, emoji is fallback)
+   ========================================================= */
+
+/* Emoji sizing (fallback only) */
+.mk-moon{ font-size: 1.02rem; line-height: 1; }
+
+/* Moon progress bar */
+.mk-moonbar{
+  height: 6px;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 999px;
+  background: rgba(0,0,0,.05);
+  overflow: hidden;
+}
+
+.mk-moonbar span{
+  display: block;
+  height: 100%;
+  background: rgba(0,0,0,.75);
+}
+
+/* ---------- Detailed moon sprite (7x4 = 28 frames) ---------- */
+.mk-moon-sprite{
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: -4px;
+  border-radius: 999px;
+  background-image: url("/igbo-calendar/moon-phases.jpg");
+  background-repeat: no-repeat;
+  background-size: 700% 400%;
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
+  filter: none;
+
+  /* Deeper brown + brighter gold (keeps crater detail) */
+}
+/* FIX: Dual moon display
+   If sprite is present beside the emoji span, hide the emoji. */
+.mk-moon-sprite + .mk-moon{ display: none; }
+
+/* Frame mapping: col = f % 7, row = floor(f / 7) */
+.mk-moon-f0  { background-position:   0%      0%; }
+.mk-moon-f1  { background-position:  16.666%  0%; }
+.mk-moon-f2  { background-position:  33.333%  0%; }
+.mk-moon-f3  { background-position:  50%      0%; }
+.mk-moon-f4  { background-position:  66.666%  0%; }
+.mk-moon-f5  { background-position:  83.333%  0%; }
+.mk-moon-f6  { background-position: 100%      0%; }
+
+.mk-moon-f7  { background-position:   0%     33.333%; }
+.mk-moon-f8  { background-position:  16.666% 33.333%; }
+.mk-moon-f9  { background-position:  33.333% 33.333%; }
+.mk-moon-f10 { background-position:  50%     33.333%; }
+.mk-moon-f11 { background-position:  66.666% 33.333%; }
+.mk-moon-f12 { background-position:  83.333% 33.333%; }
+.mk-moon-f13 { background-position: 100%     33.333%; }
+
+.mk-moon-f14 { background-position:   0%     66.666%; }
+.mk-moon-f15 { background-position:  16.666% 66.666%; }
+.mk-moon-f16 { background-position:  33.333% 66.666%; }
+.mk-moon-f17 { background-position:  50%     66.666%; }
+.mk-moon-f18 { background-position:  66.666% 66.666%; }
+.mk-moon-f19 { background-position:  83.333% 66.666%; }
+.mk-moon-f20 { background-position: 100%     66.666%; }
+
+.mk-moon-f21 { background-position:   0%    100%; }
+.mk-moon-f22 { background-position:  16.666% 100%; }
+.mk-moon-f23 { background-position:  33.333% 100%; }
+.mk-moon-f24 { background-position:  50%    100%; }
+.mk-moon-f25 { background-position:  66.666% 100%; }
+.mk-moon-f26 { background-position:  83.333% 100%; }
+.mk-moon-f27 { background-position: 100%    100%; }
+
+/* =========================================================
+   Cowrie emblem (2x2, never huge, never black)
+   ========================================================= */
+
+/* Container: 2x2 "cosmic" layout */
+.mk-cowrie-emblem.mk-cowrie-grid{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 12px;
+  width: max-content;
+  margin: 10px auto 14px;
+  place-items: center;
+}
+
+/* Each shell container */
+.mk-cowrie{
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.98), rgba(236,236,236,.92));
+  box-shadow: 0 10px 18px rgba(0,0,0,.10);
+  overflow: hidden;
+}
+
+/* Subtle individuality (do not look cloned) */
+.mk-cowrie:nth-child(1){ transform: rotate(-10deg); }
+.mk-cowrie:nth-child(2){ transform: rotate(8deg);  filter: brightness(1.03) contrast(1.02); }
+.mk-cowrie:nth-child(3){ transform: rotate(-4deg); filter: brightness(0.98) contrast(1.03); }
+.mk-cowrie:nth-child(4){ transform: rotate(6deg);  filter: brightness(1.01) contrast(1.01); }
+
+.mk-cowrie-svg{
+  width: 86%;
+  height: 86%;
+  display: block;
+}
+
+/* Explicit fills/strokes (prevents black render) */
+.mk-cowrie .shell-body{
+  fill: #f6f1e6;
+  stroke: rgba(20,20,20,.20);
+  stroke-width: 1.25;
+}
+.mk-cowrie .shell-ridge{
+  fill: #efe6d6;
+  stroke: rgba(20,20,20,.10);
+  stroke-width: 1;
+}
+.mk-cowrie .shell-slit{ fill: rgba(60, 35, 15, .30); }
+.mk-cowrie .shell-slit-edge{ fill: rgba(255,255,255,.32); }
+.mk-cowrie .shell-highlight{ fill: rgba(255,255,255,.80); }
+.mk-cowrie .shell-highlight-2{ fill: rgba(255,255,255,.40); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  .mk-cal__note,
+  .mk-cal-month{ max-width: 92%; }
+
+  .mk-cal-grid th,
+  .mk-cal-grid td{ padding: 10px 8px; }
+
+  .mk-cowrie{ width: 28px; height: 28px; }
+  .mk-cowrie-svg{ width: 86%; height: 86%; }
+
+  .mk-moon-sprite{ width: 20px; height: 20px; }
+}

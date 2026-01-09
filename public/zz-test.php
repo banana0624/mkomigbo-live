@@ -1,0 +1,1 @@
+<?php echo 'PUBLIC OK'; ?>

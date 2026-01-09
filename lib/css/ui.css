@@ -1,0 +1,293 @@
+/* =========================================================
+   /public/lib/css/ui.css
+   Global UI styles – Mkomigbo (Premium Base)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Design tokens
+--------------------------------------------------------- */
+:root {
+  --bg: #f8f9fb;
+  --fg: #1f2933;
+  --muted: #6b7280;
+
+  --card: #ffffff;
+  --border: #e5e7eb;
+
+  --brand: #0d6efd;
+  --brand-600: #0b5ed7;
+
+  --danger: #dc2626;
+
+  --radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow: 0 8px 30px rgba(0,0,0,.10);
+
+  --container: 1100px;
+  --gutter: 16px;
+
+  --ring: 0 0 0 4px rgba(13,110,253,.25);
+}
+
+/* ---------------------------------------------------------
+   Reset + base
+--------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+}
+
+/* ---------------------------------------------------------
+   Layout
+--------------------------------------------------------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 24px 0;
+}
+
+/* ---------------------------------------------------------
+   Header / Navigation
+--------------------------------------------------------- */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav a {
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--brand);
+  background: rgba(13,110,253,.12);
+}
+
+/* ---------------------------------------------------------
+   Footer
+--------------------------------------------------------- */
+.site-footer {
+  margin-top: 56px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+}
+
+/* ---------------------------------------------------------
+   Typography
+--------------------------------------------------------- */
+h1,h2,h3 {
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+/* ---------------------------------------------------------
+   Cards
+--------------------------------------------------------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Supports your calendar markup: <div class="card"><div class="card__content">...</div></div> */
+.card__content {
+  padding: 18px;
+}
+
+/* Backward-compatible */
+.card.pad {
+  padding: 18px;
+}
+
+/* ---------------------------------------------------------
+   Buttons
+--------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-600);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Forms
+--------------------------------------------------------- */
+.input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.input:focus-visible {
+  box-shadow: var(--ring);
+}
+
+/* ---------------------------------------------------------
+   Tables
+--------------------------------------------------------- */
+.table-wrap {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* IMPORTANT: align headers with body cells */
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;           /* fixes header/body perceived misalignment */
+  vertical-align: top;
+}
+
+/* Base header styling */
+th {
+  background: rgba(13,110,253,.08);
+  font-weight: 800;
+}
+
+/* For tables that use class="table" (your calendar does) */
+table.table {
+  table-layout: fixed;        /* stabilizes column widths; improves alignment */
+}
+
+table.table th,
+table.table td {
+  white-space: nowrap;        /* prevents column jitter in long content */
+}
+
+/* ---------------------------------------------------------
+   Utilities
+--------------------------------------------------------- */
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.hidden { display: none !important; }
+
+
+/* =========================================================
+   Layout Debug Mode
+   Enable with ?layout_debug=1
+   ========================================================= */
+body.layout-debug .site-header { outline: 3px solid #ff3b3b !important; }
+body.layout-debug .site-main   { outline: 3px solid #3b82f6 !important; }
+body.layout-debug .site-footer { outline: 3px solid #22c55e !important; }
+
+body.layout-debug .container { outline: 1px dashed rgba(0,0,0,.35) !important; }
+body.layout-debug .card      { outline: 2px dashed rgba(0,0,0,.25) !important; }
+
+body.layout-debug::before{
+  content:"LAYOUT DEBUG ON";
+  position:fixed;
+  bottom:12px;
+  left:12px;
+  z-index:9999;
+  padding:6px 10px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  font-size:12px;
+  opacity:.85;
+}
+
+/* =========================================================
+   Igbo Calendar: force header/body alignment (surgical)
+   ========================================================= */
+.igbo-calendar-app table,
+.igbo-calendar-app table.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.igbo-calendar-app th,
+.igbo-calendar-app td {
+  text-align: left !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.igbo-calendar-app thead th {
+  background: rgba(13,110,253,.08);
+  font-weight: 800;
+}

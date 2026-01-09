@@ -1,0 +1,185 @@
+/* /public/lib/css/subjects-grid.css
+   Restores subject cards grid + icon sizing for:
+   - /subjects/
+   - /subjects/{subject}/
+
+   Works alongside ui.css and subjects-public.css
+*/
+
+:root{
+  --ink:#111;
+  --muted:#6c757d;
+  --line:rgba(0,0,0,.10);
+  --line-strong:rgba(0,0,0,.22);
+  --card:#fff;
+  --shadow:0 12px 28px rgba(0,0,0,.05);
+  --shadow-hover:0 18px 36px rgba(0,0,0,.08);
+  --radius-xl:20px;
+  --radius-lg:18px;
+  --radius-md:16px;
+}
+
+/* Page background polish */
+body{ background: rgba(0,0,0,.015); color:var(--ink); }
+.muted{ color:var(--muted); }
+
+/* Hero (optional: used if your template has .hero) */
+.hero{
+  border:1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), #fff);
+  box-shadow: 0 20px 55px rgba(0,0,0,.10);
+  overflow:hidden;
+  position:relative;
+}
+.hero-bar{ height: 8px; background:#111; opacity:.88; }
+.hero-inner{ padding: 22px 18px 18px; }
+.hero h1{
+  margin:0 0 10px;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  line-height:1.06;
+  letter-spacing:-0.02em;
+}
+.hero p{ margin:0; max-width: 88ch; line-height:1.75; }
+
+/* SUBJECTS GRID
+   Use either:
+   - .subjects-grid (recommended)
+   - .grid (fallback if your HTML uses .grid already)
+*/
+.subjects-grid,
+.grid{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* desktop: 4 cols */
+  gap: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .subjects-grid, .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 780px){
+  .subjects-grid, .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 440px){
+  .subjects-grid, .grid{ grid-template-columns: 1fr; }
+}
+
+/* CARD */
+.subject-card,
+.card{
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  display:flex;
+  flex-direction:column;
+  min-height: 170px;
+}
+.subject-card:hover,
+.card:hover{
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Color bar (set --accent per card/subject) */
+.subject-card__bar,
+.card-bar{
+  height: 7px;
+  background: var(--accent, #111);
+}
+
+/* Body */
+.subject-card__body,
+.card-body{
+  padding: 14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
+}
+
+/* Top row: icon + text */
+.subject-card__top,
+.top{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+/* ICON SIZE FIX (your key requirement) */
+.subject-card__icon,
+.logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,0.02);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex: 0 0 auto;
+  position:relative;
+}
+.subject-card__icon::after,
+.logo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+  pointer-events:none;
+  opacity:.35;
+}
+.subject-card__icon img,
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit: cover; /* keeps icons nicely filled */
+  display:block;
+}
+
+/* Title/desc */
+.subject-card h3,
+.card h3{
+  margin: 2px 0 6px;
+  font-size: 1.1rem;
+  line-height:1.2;
+  letter-spacing:-0.01em;
+}
+.subject-card p,
+.card p{
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Pills/meta */
+.pill{
+  display:inline-block;
+  padding: 4px 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 999px;
+  background: #fff;
+  font-size: .85rem;
+  color:#495057;
+}
+.meta{
+  margin-top:auto;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* Make full card clickable if you use .stretch link */
+.stretch{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  height:100%;
+}
