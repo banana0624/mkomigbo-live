@@ -20,3 +20,6 @@ Thumbs.db
 
 # secrets
 app/mkomigbo/private/config/db.php
+
+# secrets
+app/mkomigbo/private/config/db.php
