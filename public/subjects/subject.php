@@ -1,90 +1,21 @@
 <?php
 declare(strict_types=1);
 
-/**
- * /public/subjects/subject.php
- * Controller for a single subject.
- *
- * Supports:
- * - Canonical: /subjects/{slug}/  (via rewrite -> view.php?slug=...)
- * - Legacy:   /subjects/subject.php?slug={slug}
- *
- * Behavior:
- * - If accessed via legacy controller path, 301 redirect to canonical /subjects/{slug}/
- * - Robust schema tolerance for subjects/pages tables
- * - Uses shared header/footer and subjects css bundle via subjects_header.php (preferred)
- */
-
 @ini_set('display_errors', '0');
 @ini_set('display_startup_errors', '0');
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
 
 require_once __DIR__ . '/../_init.php';
 
-/* ---------------------------------------------------------
- * Helpers
- * --------------------------------------------------------- */
 if (!function_exists('h')) {
   function h(string $v): string { return htmlspecialchars($v, ENT_QUOTES, 'UTF-8'); }
 }
 
-if (!function_exists('mk_is_ssl')) {
-  function mk_is_ssl(): bool {
-    if (!empty($_SERVER['HTTPS']) && strtolower((string)$_SERVER['HTTPS']) !== 'off') return true;
-    if ((string)($_SERVER['SERVER_PORT'] ?? '') === '443') return true;
-    if (strtolower((string)($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https') return true;
-    return false;
-  }
-}
-
-if (!function_exists('mk_abs_base')) {
-  function mk_abs_base(): string {
-    if (defined('APP_URL') && is_string(APP_URL) && trim(APP_URL) !== '') return rtrim((string)APP_URL, '/');
-    $scheme = mk_is_ssl() ? 'https' : 'http';
-    $host   = (string)($_SERVER['HTTP_HOST'] ?? '');
-    if ($host === '') return '';
-    return $scheme . '://' . $host;
-  }
-}
-
-if (!function_exists('mk_safe_redirect')) {
-  function mk_safe_redirect(string $location, int $code = 302): void {
-    $location = str_replace(["\r", "\n"], '', trim($location));
-    if ($location === '') $location = '/';
+if (!function_exists('redirect_to')) {
+  function redirect_to(string $location, int $code = 302): void {
+    $location = str_replace(["\r", "\n"], '', $location);
     header('Location: ' . $location, true, $code);
     exit;
-  }
-}
-
-if (!function_exists('mk_valid_slug')) {
-  function mk_valid_slug(string $s): bool {
-    $s = trim($s);
-    return ($s !== '') && (bool)preg_match('/^[a-z0-9][a-z0-9_-]{0,190}$/', $s);
-  }
-}
-
-if (!function_exists('pf__column_exists')) {
-  function pf__column_exists(PDO $pdo, string $table, string $column): bool {
-    static $cache = [];
-    $k = strtolower($table . '.' . $column);
-    if (array_key_exists($k, $cache)) return (bool)$cache[$k];
-
-    try {
-      $st = $pdo->prepare("
-        SELECT 1
-        FROM information_schema.COLUMNS
-        WHERE TABLE_SCHEMA = DATABASE()
-          AND TABLE_NAME = ?
-          AND COLUMN_NAME = ?
-        LIMIT 1
-      ");
-      $st->execute([$table, $column]);
-      $cache[$k] = (bool)$st->fetchColumn();
-      return (bool)$cache[$k];
-    } catch (Throwable $e) {
-      $cache[$k] = false;
-      return false;
-    }
   }
 }
 
@@ -92,20 +23,13 @@ if (!function_exists('mk_subjects_not_found')) {
   function mk_subjects_not_found(string $title = 'Not Found', string $message = 'The page you requested does not exist.'): void {
     http_response_code(404);
 
-    if (function_exists('mk_view_set') && function_exists('mk_require_shared')) {
-      mk_view_set([
-        'page_title' => $title . ' • Subjects • ' . (defined('MK_BRAND_NAME') ? (string)MK_BRAND_NAME : 'Mkomi Igbo'),
-        'page_desc'  => $message,
-        'active_nav' => 'subjects',
-        'nav_active' => 'subjects',
-      ]);
+    $GLOBALS['page_title'] = $title . ' • Mkomi Igbo';
+    $GLOBALS['page_desc']  = $message;
+    $GLOBALS['active_nav'] = 'subjects';
+    $GLOBALS['nav_active'] = 'subjects';
 
-      // Prefer subjects_header so the subjects css bundle is present on 404s too
-      try {
-        mk_require_shared('subjects_header.php');
-      } catch (Throwable $e) {
-        mk_require_shared('public_header.php');
-      }
+    if (function_exists('mk_require_shared')) {
+      mk_require_shared('public_header.php');
 
       echo '<div class="container" style="padding:18px 0;">';
       echo '  <header class="mk-hero" style="margin-top:14px;">';
@@ -128,36 +52,53 @@ if (!function_exists('mk_subjects_not_found')) {
   }
 }
 
-/* ---------------------------------------------------------
- * Inputs
- * --------------------------------------------------------- */
+/* Cache headers (GET only) */
+if (function_exists('mk_public_cache_headers')) {
+  mk_public_cache_headers(300);
+}
+
+/* Accept slug */
 $subject_slug = '';
 if (isset($_GET['slug']) && is_string($_GET['slug'])) $subject_slug = trim($_GET['slug']);
 if ($subject_slug === '' && isset($_GET['subject']) && is_string($_GET['subject'])) $subject_slug = trim($_GET['subject']);
 $subject_slug = strtolower($subject_slug);
 
-if (!mk_valid_slug($subject_slug)) {
+if ($subject_slug === '') redirect_to('/subjects/', 302);
+
+if (!preg_match('/^[a-z0-9][a-z0-9_-]{0,190}$/', $subject_slug)) {
   mk_subjects_not_found('Subject not found', 'Invalid subject slug.');
 }
 
-/* ---------------------------------------------------------
- * Canonical redirect
- * If someone hits /subjects/subject.php?slug=history, redirect to /subjects/history/
- * (Do NOT redirect when already on canonical route handled by /subjects/{slug}/)
- * --------------------------------------------------------- */
-$reqPath = (string)parse_url((string)($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_PATH);
-$reqPath = $reqPath !== '' ? $reqPath : '';
-
-if (preg_match('~/(subjects/)?subject\.php$~i', $reqPath)) {
-  $canonical = '/subjects/' . rawurlencode($subject_slug) . '/';
-  mk_safe_redirect($canonical, 301);
+/* Canonical URL enforcement:
+   If accessed as /subjects/subject.php?slug=history (or any query form),
+   redirect to /subjects/history/ (301). */
+$req_uri = (string)($_SERVER['REQUEST_URI'] ?? '');
+if (stripos($req_uri, '/subjects/subject.php') === 0) {
+  redirect_to('/subjects/' . rawurlencode($subject_slug) . '/', 301);
 }
 
-/* ---------------------------------------------------------
- * Load subject + pages (schema tolerant)
- * --------------------------------------------------------- */
-$subject  = null;
-$pages    = [];
+if (!function_exists('pf__column_exists')) {
+  function pf__column_exists(PDO $pdo, string $table, string $column): bool {
+    static $cache = [];
+    $k = strtolower($table . '.' . $column);
+    if (array_key_exists($k, $cache)) return (bool)$cache[$k];
+
+    $st = $pdo->prepare("
+      SELECT COUNT(*)
+      FROM information_schema.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE()
+        AND TABLE_NAME = ?
+        AND COLUMN_NAME = ?
+      LIMIT 1
+    ");
+    $st->execute([$table, $column]);
+    $cache[$k] = ((int)$st->fetchColumn() > 0);
+    return (bool)$cache[$k];
+  }
+}
+
+$subject = null;
+$pages = [];
 $db_error = null;
 
 try {
@@ -170,15 +111,15 @@ try {
     else $nameCol = 'slug';
   }
 
-  $descCol = null;
-  if (pf__column_exists($pdo, 'subjects', 'meta_description')) $descCol = 'meta_description';
-  elseif (pf__column_exists($pdo, 'subjects', 'description')) $descCol = 'description';
-  elseif (pf__column_exists($pdo, 'subjects', 'content')) $descCol = 'content';
+  $descCol = 'description';
+  if (!pf__column_exists($pdo, 'subjects', 'description')) {
+    $descCol = pf__column_exists($pdo, 'subjects', 'content') ? 'content' : 'slug';
+  }
 
-  $cols = ['id','slug', "{$nameCol} AS name"];
-  if ($descCol) $cols[] = "{$descCol} AS description";
-
-  $st = $pdo->prepare("SELECT " . implode(', ', $cols) . " FROM subjects WHERE slug = ? LIMIT 1");
+  $st = $pdo->prepare("SELECT id, slug, {$nameCol} AS name, {$descCol} AS description
+                       FROM subjects
+                       WHERE slug = ?
+                       LIMIT 1");
   $st->execute([$subject_slug]);
   $subject = $st->fetch(PDO::FETCH_ASSOC) ?: null;
 
@@ -202,12 +143,10 @@ try {
     $orderCol = pf__column_exists($pdo, 'pages', 'nav_order') ? 'nav_order'
              : (pf__column_exists($pdo, 'pages', 'position') ? 'position' : 'id');
 
-    $pst = $pdo->prepare("
-      SELECT id, slug, {$titleCol} AS title
-      FROM pages
-      {$where}
-      ORDER BY {$orderCol} IS NULL, {$orderCol} ASC, id ASC
-    ");
+    $pst = $pdo->prepare("SELECT id, slug, {$titleCol} AS title
+                          FROM pages
+                          {$where}
+                          ORDER BY {$orderCol} IS NULL, {$orderCol} ASC, id ASC");
     $pst->execute([$sid]);
     $pages = $pst->fetchAll(PDO::FETCH_ASSOC) ?: [];
   }
@@ -215,56 +154,34 @@ try {
   $db_error = $e->getMessage();
 }
 
-/* ---------------------------------------------------------
- * Not found
- * --------------------------------------------------------- */
+$active_nav = 'subjects';
+$nav_active = 'subjects';
+
+/* IMPORTANT: subject pages must use Subjects header so the full CSS bundle loads */
+if (function_exists('mk_require_shared')) {
+  mk_require_shared('subjects_header.php');
+} else {
+  if (defined('APP_ROOT') && is_file(APP_ROOT . '/private/shared/subjects_header.php')) {
+    require APP_ROOT . '/private/shared/subjects_header.php';
+  }
+}
+
 if (!$subject) {
   mk_subjects_not_found('Subject not found', 'No subject matched the requested slug: ' . $subject_slug);
 }
 
-/* ---------------------------------------------------------
- * Header vars
- * --------------------------------------------------------- */
-$brand = defined('MK_BRAND_NAME') ? (string)MK_BRAND_NAME : 'Mkomi Igbo';
-
-$s_name = trim((string)($subject['name'] ?? $subject['slug'] ?? 'Subject'));
-if ($s_name === '') $s_name = (string)$subject_slug;
-
+$s_slug = (string)($subject['slug'] ?? $subject_slug);
+$s_name = (string)($subject['name'] ?? $s_slug);
 $s_desc = trim((string)($subject['description'] ?? ''));
 
-if (function_exists('mk_view_set')) {
-  mk_view_set([
-    'active_nav' => 'subjects',
-    'nav_active' => 'subjects',
-    'page_title' => $s_name . ' • Subjects • ' . $brand,
-    'page_desc'  => ($s_desc !== '' ? $s_desc : 'Browse pages under this subject.'),
-    // Canonical for SEO
-    'canonical'  => (mk_abs_base() !== '' ? (mk_abs_base() . '/subjects/' . rawurlencode($subject_slug) . '/') : '/subjects/' . rawurlencode($subject_slug) . '/'),
-  ]);
-}
+$page_title = $s_name . ' • Subjects • Mkomi Igbo';
+$page_desc  = $s_desc !== '' ? $s_desc : 'Browse pages under this subject.';
 
-/* Prefer subjects_header to ensure full subjects css bundle */
-if (function_exists('mk_require_shared')) {
-  try {
-    mk_require_shared('subjects_header.php');
-  } catch (Throwable $e) {
-    mk_require_shared('public_header.php');
-  }
-} else {
-  if (defined('APP_ROOT') && is_file(APP_ROOT . '/private/shared/public_header.php')) {
-    require APP_ROOT . '/private/shared/public_header.php';
-  }
-}
-
-/* ---------------------------------------------------------
- * Render
- * --------------------------------------------------------- */
 if ($db_error) {
-  echo '<div class="notice error" style="margin:12px 0;"><strong>DB Error:</strong> ' . h($db_error) . '</div>';
+  echo '<div class="container" style="padding:12px 0;">';
+  echo '<div class="notice error"><strong>DB Error:</strong> ' . h($db_error) . '</div>';
+  echo '</div>';
 }
-
-$s_slug = (string)$subject['slug'];
-
 ?>
 <div class="container" style="padding:18px 0;">
 
@@ -287,10 +204,9 @@ $s_slug = (string)$subject['slug'];
         <?php
           $p_slug  = (string)($p['slug'] ?? '');
           if ($p_slug === '') continue;
-
           $p_title = trim((string)($p['title'] ?? '')) ?: $p_slug;
 
-          // Canonical clean URL
+          // Canonical pretty URL
           $p_href  = '/subjects/' . rawurlencode($s_slug) . '/' . rawurlencode($p_slug) . '/';
         ?>
         <article class="mk-card mk-subject-card">
@@ -314,5 +230,11 @@ $s_slug = (string)$subject['slug'];
 </div>
 <?php
 if (function_exists('mk_require_shared')) {
-  mk_require_shared('public_footer.php');
+  mk_require_shared('subjects_footer.php');
+} else {
+  if (defined('APP_ROOT') && is_file(APP_ROOT . '/private/shared/subjects_footer.php')) {
+    require APP_ROOT . '/private/shared/subjects_footer.php';
+  } elseif (function_exists('mk_require_shared')) {
+    mk_require_shared('public_footer.php');
+  }
 }

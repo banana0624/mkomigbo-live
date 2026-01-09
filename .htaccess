@@ -1,5 +1,5 @@
 # =========================================================
-# public_html/.htaccess (CLEAN DISPATCHER + STATIC BYPASS)
+# public_html/.htaccess (CANONICAL CLEAN URLS + STATIC BYPASS)
 # =========================================================
 
 Options -Indexes -MultiViews
@@ -27,22 +27,44 @@ RewriteRule ^rewrite-test$ rewrite-test.php [L]
 RewriteRule ^$ public/index.php [L,QSA]
 
 # ---------------------------------------------------------
-# 2) Subjects
+# 2) Subjects (Canonical clean URLs)
 #
-# We keep REAL FILE entrypoints, and route ALL virtual
-# /subjects/{slug}/... URLs into subjects/view.php
-# (view.php is the canonical router and decides what to load).
+# Canonical:
+#   /subjects/                  -> index
+#   /subjects/{subject}/        -> subject controller
+#   /subjects/{subject}/{page}/ -> page controller
+#
+# Redirect legacy/controller URLs to canonical.
 # ---------------------------------------------------------
-RewriteRule ^subjects/?$                 public/subjects/index.php [L,QSA]
-RewriteRule ^subjects/view\.php$         public/subjects/view.php  [L,NC,QSA]
-RewriteRule ^subjects/subject\.php$      public/subjects/subject.php [L,NC,QSA]
-RewriteRule ^subjects/page\.php$         public/subjects/page.php  [L,NC,QSA]
 
-# Virtual subject routes (e.g. /subjects/history/ or /subjects/history/intro/)
-RewriteRule ^subjects/.+                 public/subjects/view.php  [L,QSA]
+# 2a) Index
+RewriteRule ^subjects/?$ public/subjects/index.php [L,QSA]
+
+# 2b) Redirect direct controller access to canonical (prevents duplicates)
+# /subjects/subject.php?slug=history  -> /subjects/history/
+RewriteCond %{THE_REQUEST} \s/+subjects/subject\.php\?slug=([a-z0-9][a-z0-9_-]{0,190}) [NC]
+RewriteRule ^subjects/subject\.php$ /subjects/%1/ [R=301,L]
+
+# /subjects/page.php?subject=history&slug=intro -> /subjects/history/intro/
+RewriteCond %{THE_REQUEST} \s/+subjects/page\.php\?subject=([a-z0-9][a-z0-9_-]{0,190})\&slug=([a-z0-9][a-z0-9_-]{0,190}) [NC]
+RewriteRule ^subjects/page\.php$ /subjects/%1/%2/ [R=301,L]
+
+# legacy: ?page= instead of ?slug=
+RewriteCond %{THE_REQUEST} \s/+subjects/page\.php\?subject=([a-z0-9][a-z0-9_-]{0,190})\&page=([a-z0-9][a-z0-9_-]{0,190}) [NC]
+RewriteRule ^subjects/page\.php$ /subjects/%1/%2/ [R=301,L]
+
+# 2c) Canonical routing (pretty URLs -> real PHP files)
+# Page: /subjects/{subject}/{page}/
+RewriteRule ^subjects/([a-z0-9][a-z0-9_-]{0,190})/([a-z0-9][a-z0-9_-]{0,190})/?$ public/subjects/page.php?subject=$1&slug=$2 [L,QSA]
+
+# Subject: /subjects/{subject}/
+RewriteRule ^subjects/([a-z0-9][a-z0-9_-]{0,190})/?$ public/subjects/subject.php?slug=$1 [L,QSA]
+
+# 2d) Allow any real file under /public/subjects/ (health/diag/scripts, etc.)
+RewriteRule ^subjects/(.*)$ public/subjects/$1 [L,NC,QSA]
 
 # ---------------------------------------------------------
-# 3) Other modules (route into /public/<module>/... directly)
+# 3) Other modules (route into /public/<module>/...)
 # ---------------------------------------------------------
 RewriteRule ^contributors/?(.*)$   public/contributors/$1   [L,NC,QSA]
 RewriteRule ^platforms/?(.*)$      public/platforms/$1      [L,NC,QSA]
@@ -53,6 +75,7 @@ RewriteRule ^igbo-calendar/?(.*)$  public/igbo-calendar/$1  [L,NC,QSA]
 # 4) Final fallback
 # ---------------------------------------------------------
 RewriteRule ^ public/index.php [L,QSA]
+
 </IfModule>
 
 ErrorDocument 404 /404.shtml

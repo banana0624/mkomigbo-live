@@ -1,46 +1,28 @@
 <?php
 declare(strict_types=1);
 
-/**
- * /public/subjects/page.php
- *
- * Supports:
- * - Canonical: /subjects/{subject}/{page}/ (via rewrite -> view.php?slug=...&page=...)
- * - Legacy:   /subjects/page.php?subject=culture&slug=intro  (or &page=intro)
- *
- * Behavior:
- * - If accessed via legacy controller path, 301 redirect to canonical URL.
- * - Schema tolerant; safe rendering; uses subjects_header.php so all subjects CSS is present.
- */
-
 @ini_set('display_errors', '0');
 @ini_set('display_startup_errors', '0');
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
 
+/**
+ * /public/subjects/page.php
+ *
+ * Canonical:
+ *   /subjects/{subject}/{page}/
+ *
+ * Internally still supports query params because mod_rewrite routes to this:
+ *   /subjects/page.php?subject=culture&slug=intro
+ *   /subjects/page.php?subject=culture&page=intro (legacy)
+ */
+
 require_once __DIR__ . '/../_init.php';
 
-/* ---------------------------------------------------------
- * Helpers
- * --------------------------------------------------------- */
 if (!function_exists('h')) {
   function h(string $v): string { return htmlspecialchars($v, ENT_QUOTES, 'UTF-8'); }
 }
 if (!function_exists('pf__seg')) {
   function pf__seg(string $s): string { return rawurlencode($s); }
-}
-if (!function_exists('mk_valid_slug')) {
-  function mk_valid_slug(string $s): bool {
-    $s = trim($s);
-    return ($s !== '') && (bool)preg_match('/^[a-z0-9][a-z0-9_-]{0,190}$/', $s);
-  }
-}
-if (!function_exists('mk_safe_redirect')) {
-  function mk_safe_redirect(string $location, int $code = 302): void {
-    $location = str_replace(["\r", "\n"], '', trim($location));
-    if ($location === '') $location = '/';
-    header('Location: ' . $location, true, $code);
-    exit;
-  }
 }
 if (!function_exists('pf__excerpt')) {
   function pf__excerpt(string $html, int $limit = 220): string {
@@ -56,42 +38,37 @@ if (!function_exists('pf__excerpt')) {
   }
 }
 
-/* Cache headers (GET only, if you have helper) */
+/* Cache headers (GET only) */
 if (function_exists('mk_public_cache_headers')) {
   mk_public_cache_headers(300);
 }
 
-/* ---------------------------------------------------------
- * Inputs (support ?slug= and legacy ?page=)
- * --------------------------------------------------------- */
-$subject_slug = isset($_GET['subject']) ? strtolower(trim((string)$_GET['subject'])) : '';
+/* Inputs */
+$subject_slug = isset($_GET['subject']) ? trim((string)$_GET['subject']) : '';
 $page_slug    = '';
 
 if (isset($_GET['slug'])) {
-  $page_slug = strtolower(trim((string)$_GET['slug']));
+  $page_slug = trim((string)$_GET['slug']);
 } elseif (isset($_GET['page'])) {
-  $page_slug = strtolower(trim((string)$_GET['page']));
+  $page_slug = trim((string)$_GET['page']);
 }
 
-/* Validate slugs */
-if (!mk_valid_slug($subject_slug) || !mk_valid_slug($page_slug)) {
+$subject_slug = strtolower($subject_slug);
+$page_slug    = strtolower($page_slug);
+
+$valid = static function (string $s): bool {
+  return ($s !== '') && (bool)preg_match('/^[a-z0-9][a-z0-9_-]{0,190}$/', $s);
+};
+
+if (!$valid($subject_slug) || !$valid($page_slug)) {
   http_response_code(404);
+  $GLOBALS['page_title'] = 'Page not found • Mkomi Igbo';
+  $GLOBALS['page_desc']  = 'The requested subject page could not be found.';
+  $GLOBALS['active_nav'] = 'subjects';
+  $GLOBALS['nav_active'] = 'subjects';
 
-  if (function_exists('mk_view_set') && function_exists('mk_require_shared')) {
-    $brand = defined('MK_BRAND_NAME') ? (string)MK_BRAND_NAME : 'Mkomi Igbo';
-    mk_view_set([
-      'page_title' => 'Page not found • ' . $brand,
-      'page_desc'  => 'The requested subject page could not be found.',
-      'active_nav' => 'subjects',
-      'nav_active' => 'subjects',
-    ]);
-
-    try {
-      mk_require_shared('subjects_header.php');
-    } catch (Throwable $e) {
-      mk_require_shared('public_header.php');
-    }
-
+  if (function_exists('mk_require_shared')) {
+    mk_require_shared('subjects_header.php');
     echo '<div class="container" style="padding:18px 0;">';
     echo '  <header class="mk-hero" style="margin-top:14px;">';
     echo '    <div class="mk-hero__bar" aria-hidden="true"></div>';
@@ -102,8 +79,7 @@ if (!mk_valid_slug($subject_slug) || !mk_valid_slug($page_slug)) {
     echo '    </div>';
     echo '  </header>';
     echo '</div>';
-
-    mk_require_shared('public_footer.php');
+    mk_require_shared('subjects_footer.php');
     exit;
   }
 
@@ -112,21 +88,14 @@ if (!mk_valid_slug($subject_slug) || !mk_valid_slug($page_slug)) {
   exit;
 }
 
-/* ---------------------------------------------------------
- * Canonical redirect
- * If someone hits /subjects/page.php?subject=x&slug=y, redirect to /subjects/x/y/
- * --------------------------------------------------------- */
-$reqPath = (string)parse_url((string)($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_PATH);
-$reqPath = $reqPath !== '' ? $reqPath : '';
-
-if (preg_match('~/(subjects/)?page\.php$~i', $reqPath)) {
-  $canonical = '/subjects/' . pf__seg($subject_slug) . '/' . pf__seg($page_slug) . '/';
-  mk_safe_redirect($canonical, 301);
+/* Canonical redirect if accessed via controller URL */
+$req_uri = (string)($_SERVER['REQUEST_URI'] ?? '');
+if (stripos($req_uri, '/subjects/page.php') === 0) {
+  header('Location: /subjects/' . pf__seg($subject_slug) . '/' . pf__seg($page_slug) . '/', true, 301);
+  exit;
 }
 
-/* ---------------------------------------------------------
- * Schema helpers
- * --------------------------------------------------------- */
+/* DB schema helpers */
 $column_exists = static function (PDO $pdo, string $table, string $column): bool {
   static $cache = [];
   $key = strtolower($table . '.' . $column);
@@ -150,20 +119,16 @@ $column_exists = static function (PDO $pdo, string $table, string $column): bool
   }
 };
 
-/* ---------------------------------------------------------
- * Load subject + page + sidebar pages
- * --------------------------------------------------------- */
 $subject = null;
 $page = null;
 $sidebar_pages = [];
 $db_error = '';
 
 try {
-  if (!function_exists('db')) throw new RuntimeException('db() not available.');
   $pdo = db();
   if (!$pdo instanceof PDO) throw new RuntimeException('DB connection not available.');
 
-  /* SUBJECT columns */
+  /* SUBJECT */
   $subNameCol = 'name';
   if (!$column_exists($pdo, 'subjects', 'name')) {
     if ($column_exists($pdo, 'subjects', 'menu_name')) $subNameCol = 'menu_name';
@@ -186,21 +151,19 @@ try {
   if ($subject) {
     $sid = (int)$subject['id'];
 
-    /* PAGE columns */
     $hasTitle    = $column_exists($pdo, 'pages', 'title');
     $hasMenuName = $column_exists($pdo, 'pages', 'menu_name');
     $hasBodyHtml = $column_exists($pdo, 'pages', 'body_html');
     $hasBody     = $column_exists($pdo, 'pages', 'body');
     $hasContent  = $column_exists($pdo, 'pages', 'content');
 
-    $hasStatus   = $column_exists($pdo, 'pages', 'status');
     $hasIsPublic = $column_exists($pdo, 'pages', 'is_public');
     $hasVisible  = $column_exists($pdo, 'pages', 'visible');
 
     $hasNavOrder = $column_exists($pdo, 'pages', 'nav_order');
     $hasPosition = $column_exists($pdo, 'pages', 'position');
 
-    /* Single page */
+    /* PAGE */
     $pCols = ['id', 'subject_id', 'slug'];
     if ($hasTitle)    $pCols[] = 'title';
     if ($hasMenuName) $pCols[] = 'menu_name';
@@ -209,55 +172,42 @@ try {
     if ($hasContent)  $pCols[] = 'content';
 
     $where = "subject_id = ? AND slug = ?";
-    if ($hasStatus)   $where .= " AND status IN ('active','published','public')";
-    elseif ($hasIsPublic) $where .= " AND is_public = 1";
-    elseif ($hasVisible)  $where .= " AND visible = 1";
+    if ($hasIsPublic) $where .= " AND is_public = 1";
+    elseif ($hasVisible) $where .= " AND visible = 1";
 
-    $sqlPage = "SELECT " . implode(', ', array_unique($pCols)) . " FROM pages WHERE {$where} LIMIT 1";
-    $st2 = $pdo->prepare($sqlPage);
+    $st2 = $pdo->prepare("SELECT " . implode(', ', array_unique($pCols)) . " FROM pages WHERE {$where} LIMIT 1");
     $st2->execute([$sid, $page_slug]);
     $page = $st2->fetch(PDO::FETCH_ASSOC) ?: null;
 
     if ($page) {
-      /* Normalize title */
       $t = '';
-      if ($hasTitle && isset($page['title']) && is_string($page['title'])) $t = trim($page['title']);
-      if ($t === '' && $hasMenuName && isset($page['menu_name']) && is_string($page['menu_name'])) $t = trim($page['menu_name']);
+      if (isset($page['title']) && is_string($page['title'])) $t = trim($page['title']);
+      if ($t === '' && isset($page['menu_name']) && is_string($page['menu_name'])) $t = trim($page['menu_name']);
       if ($t === '') $t = (string)($page['slug'] ?? '');
       $page['title'] = $t;
 
-      /* Normalize body_html */
       $body_html = '';
-      if ($hasBodyHtml && isset($page['body_html']) && is_string($page['body_html']) && trim($page['body_html']) !== '') {
-        $body_html = (string)$page['body_html'];
-      } elseif ($hasBody && isset($page['body']) && is_string($page['body']) && trim($page['body']) !== '') {
-        $body_html = (string)$page['body'];
-      } elseif ($hasContent && isset($page['content']) && is_string($page['content']) && trim($page['content']) !== '') {
-        $body_html = (string)$page['content'];
-      }
+      if (!empty($page['body_html']) && is_string($page['body_html'])) $body_html = (string)$page['body_html'];
+      elseif (!empty($page['body']) && is_string($page['body'])) $body_html = (string)$page['body'];
+      elseif (!empty($page['content']) && is_string($page['content'])) $body_html = (string)$page['content'];
       $page['body_html'] = $body_html;
     }
 
-    /* Sidebar */
-    $sCols = ['id','slug'];
+    /* SIDEBAR */
+    $sCols = ['id', 'slug'];
     if ($hasTitle)    $sCols[] = 'title';
     if ($hasMenuName) $sCols[] = 'menu_name';
-    if ($hasNavOrder) $sCols[] = 'nav_order';
-    if ($hasPosition) $sCols[] = 'position';
 
     $whereS = "subject_id = ?";
-    if ($hasStatus)   $whereS .= " AND status IN ('active','published','public')";
-    elseif ($hasIsPublic) $whereS .= " AND is_public = 1";
-    elseif ($hasVisible)  $whereS .= " AND visible = 1";
+    if ($hasIsPublic) $whereS .= " AND is_public = 1";
+    elseif ($hasVisible) $whereS .= " AND visible = 1";
 
     $orderCol = $hasNavOrder ? 'nav_order' : ($hasPosition ? 'position' : 'id');
 
-    $st3 = $pdo->prepare("
-      SELECT " . implode(', ', array_unique($sCols)) . "
-      FROM pages
-      WHERE {$whereS}
-      ORDER BY {$orderCol} IS NULL, {$orderCol} ASC, id ASC
-    ");
+    $st3 = $pdo->prepare("SELECT " . implode(', ', array_unique($sCols)) . "
+                          FROM pages
+                          WHERE {$whereS}
+                          ORDER BY {$orderCol} IS NULL, {$orderCol} ASC, id ASC");
     $st3->execute([$sid]);
     $sidebar_pages = $st3->fetchAll(PDO::FETCH_ASSOC) ?: [];
 
@@ -275,10 +225,9 @@ try {
   $db_error = $e->getMessage();
 }
 
-/* ---------------------------------------------------------
- * Meta vars + header include
- * --------------------------------------------------------- */
-$brand = defined('MK_BRAND_NAME') ? (string)MK_BRAND_NAME : 'Mkomi Igbo';
+/* Meta + header (Subjects header for CSS bundle) */
+$GLOBALS['active_nav'] = 'subjects';
+$GLOBALS['nav_active'] = 'subjects';
 
 $subject_title = $subject ? trim((string)($subject['name'] ?? $subject_slug)) : $subject_slug;
 if ($subject_title === '') $subject_title = $subject_slug;
@@ -286,56 +235,37 @@ if ($subject_title === '') $subject_title = $subject_slug;
 $page_title_txt = $page ? trim((string)($page['title'] ?? $page_slug)) : 'Page not found';
 if ($page_title_txt === '') $page_title_txt = $page_slug;
 
-$lede = ($page && isset($page['body_html']) && is_string($page['body_html']) && trim($page['body_html']) !== '')
+$lede = ($page && !empty($page['body_html']) && is_string($page['body_html']))
   ? pf__excerpt((string)$page['body_html'], 220)
   : '';
 
-$page_title = ($subject && $page)
-  ? ($page_title_txt . ' • ' . $subject_title . ' • ' . $brand)
-  : ('Page not found • ' . $brand);
+$GLOBALS['page_title'] = ($subject && $page)
+  ? ($page_title_txt . ' • ' . $subject_title . ' • Mkomi Igbo')
+  : 'Page not found • Mkomi Igbo';
 
-$page_desc = ($subject && $page)
-  ? (trim($lede) !== '' ? $lede : ('Read “' . $page_title_txt . '” under ' . $subject_title . ' on ' . $brand . '.'))
-  : ('Page not found on ' . $brand . '.');
+$GLOBALS['page_desc'] = ($subject && $page)
+  ? (trim($lede) !== '' ? $lede : ('Read “' . $page_title_txt . '” under ' . $subject_title . ' on Mkomi Igbo.'))
+  : 'Page not found on Mkomi Igbo.';
 
-if (function_exists('mk_view_set')) {
-  mk_view_set([
-    'active_nav' => 'subjects',
-    'nav_active' => 'subjects',
-    'page_title' => $page_title,
-    'page_desc'  => $page_desc,
-    'canonical'  => '/subjects/' . pf__seg($subject_slug) . '/' . pf__seg($page_slug) . '/',
-  ]);
-}
-
-/* Use subjects_header so the css bundle always loads */
 if (function_exists('mk_require_shared')) {
-  try {
-    mk_require_shared('subjects_header.php');
-  } catch (Throwable $e) {
-    mk_require_shared('public_header.php');
-  }
-} else {
-  if (defined('APP_ROOT')) {
-    $hdr = APP_ROOT . '/private/shared/public_header.php';
-    if (is_file($hdr)) require $hdr;
-  }
+  mk_require_shared('subjects_header.php');
 }
 
-/* URLs */
+/* Canonical URLs */
 $home_url     = function_exists('url_for') ? (string)url_for('/') : '/';
 $subjects_url = function_exists('url_for') ? (string)url_for('/subjects/') : '/subjects/';
 $subject_url  = '/subjects/' . pf__seg($subject_slug) . '/';
+$page_url     = '/subjects/' . pf__seg($subject_slug) . '/' . pf__seg($page_slug) . '/';
 
-/* Render 404 if needed */
 if (!$subject || !$page) {
   http_response_code(404);
 }
 
 if ($db_error !== '') {
-  echo '<div class="notice error" style="margin:12px 0;"><strong>DB Error:</strong> ' . h($db_error) . '</div>';
+  echo '<div class="container" style="padding:12px 0;">';
+  echo '<div class="notice error"><strong>DB Error:</strong> ' . h($db_error) . '</div>';
+  echo '</div>';
 }
-
 ?>
 <div class="container" style="padding:18px 0;">
 
@@ -344,13 +274,9 @@ if ($db_error !== '') {
     <span class="mk-crumbs__sep">›</span>
     <a href="<?= h($subjects_url) ?>">Subjects</a>
     <span class="mk-crumbs__sep">›</span>
-    <?php if ($subject): ?>
-      <a href="<?= h($subject_url) ?>"><?= h($subject_title) ?></a>
-      <span class="mk-crumbs__sep">›</span>
-      <span class="mk-crumbs__current"><?= h($page_title_txt) ?></span>
-    <?php else: ?>
-      <span class="mk-crumbs__current">Page</span>
-    <?php endif; ?>
+    <a href="<?= h($subject_url) ?>"><?= h($subject_title) ?></a>
+    <span class="mk-crumbs__sep">›</span>
+    <span class="mk-crumbs__current"><?= h($page_title_txt) ?></span>
   </section>
 
   <?php if (!$subject): ?>
@@ -417,7 +343,7 @@ if ($db_error !== '') {
                 if ($sp_slug === '') continue;
                 $sp_url = '/subjects/' . pf__seg($subject_slug) . '/' . pf__seg($sp_slug) . '/';
                 $label  = trim((string)($sp['title'] ?? '')) !== '' ? (string)$sp['title'] : $sp_slug;
-                $is_active = ($sp_slug === (string)($page['slug'] ?? ''));
+                $is_active = ($sp_slug === (string)($page['slug'] ?? $page_slug));
               ?>
               <li class="mk-side-list__item">
                 <a class="mk-side-list__link <?= $is_active ? 'is-active' : '' ?>" href="<?= h($sp_url) ?>">
@@ -432,13 +358,11 @@ if ($db_error !== '') {
   <?php endif; ?>
 
 </div>
-
 <?php
 if (function_exists('mk_require_shared')) {
-  mk_require_shared('public_footer.php');
+  mk_require_shared('subjects_footer.php');
 } else {
-  if (defined('APP_ROOT')) {
-    $f = APP_ROOT . '/private/shared/public_footer.php';
-    if (is_file($f)) require $f;
+  if (defined('APP_ROOT') && is_file(APP_ROOT . '/private/shared/subjects_footer.php')) {
+    require APP_ROOT . '/private/shared/subjects_footer.php';
   }
 }
