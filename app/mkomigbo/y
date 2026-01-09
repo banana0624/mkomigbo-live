@@ -1,0 +1,25 @@
+cat > vendor/autoload.php <<'EOF'
+<?php
+/**
+ * Minimal project autoloader (no Composer yet)
+ */
+
+spl_autoload_register(function ($class) {
+    $basePath = __DIR__ . '/../private/';
+
+    $directories = [
+        'models',
+        'controllers',
+        'helpers'
+    ];
+
+    foreach ($directories as $dir) {
+        $file = $basePath . $dir . '/' . $class . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
+    }
+});
+EOF
+

@@ -1,0 +1,12 @@
+<?php
+// Central PDO database connection
+$pdo = new PDO(
+    'mysql:host=localhost;dbname=mkomigbo_mkomigbo_app;charset=utf8',
+    'username',   // replace with your DB username
+    'password',   // replace with your DB password
+    [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]
+);
+?>
