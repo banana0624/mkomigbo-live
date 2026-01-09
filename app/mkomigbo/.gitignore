@@ -1,0 +1,14 @@
+.env
+vendor/
+node_modules/
+php-errors.log
+error_log
+uploads/
+lscache/
+
+/public/uploads/
+/private/uploads/
+/public/lscache/
+/lscache/
+*.log
+
