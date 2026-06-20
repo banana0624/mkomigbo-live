@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key topics in Igbo history — deep dives into specific periods, events, and themes.</p>';
+echo '<h2>Origins and Early Society</h2>';
+echo '<p>The question of Igbo origins has been debated by linguists, archaeologists, and historians. The evidence points to long settlement in the Niger-Benue confluence, with the Igbo language belonging to the Niger-Congo family. The discovery of Igbo-Ukwu in 1939 pushed back the known chronology of Igbo artistic and technological achievement by centuries.</p>';
+echo '<h2>The Nri Kingdom and Ritual Authority</h2>';
+echo '<p>The Kingdom of Nri represents a unique political formation — power derived not from military conquest but from ritual authority. The Eze Nri performed purification rites across Igboland, consecrated titles, and arbitrated disputes. Understanding Nri is key to understanding how Igbo society organized itself before colonization.</p>';
+echo '<h2>Atlantic Slavery and the Bight of Biafra</h2>';
+echo '<p>The Bight of Biafra was one of the most active slaving zones in the entire Atlantic world. The Aro trading network became central to this trade, channeling captives from wars, raids, and judicial proceedings to coastal ports. The consequences shaped Igbo society internally and created the Igbo diaspora in the Americas.</p>';
+echo '<h2>The Women\'s War of 1929</h2>';
+echo '<p>The Ogu Umunwanyi — Women\'s War — was one of the largest anti-colonial uprisings in West African history. Tens of thousands of Igbo and Ibibio women mobilized against the threat of direct taxation and the illegitimate warrant chief system imposed by the British. The uprising forced a fundamental reassessment of British colonial administration in eastern Nigeria.</p>';
+echo '<h2>The Nigeria-Biafra War (1967–1970)</h2>';
+echo '<p>The civil war remains the defining trauma of modern Igbo history. Triggered by the mass killing of Igbo in northern Nigeria in 1966, the declaration of Biafra, and the subsequent federal military campaign, the war lasted thirty months and killed between one and three million people — the majority from famine. The causes, conduct, and consequences of the war remain contested and deeply felt.</p>';
+echo '<h2>Reconstruction and the Post-War Decades</h2>';
+echo '<p>The aftermath of the war was shaped by the federal government\'s reconciliation policy — "No Victor, No Vanquished" — which masked significant economic and political discrimination against the Igbo. The 20-pound policy wiped out Igbo savings. Despite this, the Igbo rebuilt rapidly through commerce, education, and community solidarity.</p>';
+echo '<h2>The Contemporary Igbo World</h2>';
+echo '<p>Today the Igbo are one of Nigeria\'s most commercially active and globally dispersed peoples. The unresolved questions of the civil war — justice, memory, sovereignty — continue to animate Igbo politics through movements like IPOB. Meanwhile Igbo cultural production, entrepreneurship, and diaspora networks continue to shape Nigeria and the world.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/history/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/history/timeline/">Timeline</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/history/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/history/sources/">Sources</a>';
+echo '</div></div>';

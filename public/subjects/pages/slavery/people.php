@@ -1,0 +1,20 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key figures in the history of slavery — the enslaved, the abolitionists, and the scholars.</p>';
+echo '<h2>Olaudah Equiano (c. 1745–1797)</h2>';
+echo '<p>Born in Igboland (present-day Anambra State), Equiano was captured and enslaved as a child, transported to Barbados, then Virginia, then sold to a Royal Navy officer. He eventually purchased his freedom and became one of the leading abolitionists of the 18th century. His autobiography — <em>The Interesting Narrative of the Life of Olaudah Equiano, or Gustavus Vassa, the African</em> (1789) — is the foundational text of the Igbo experience in the Atlantic slave trade. It sold thousands of copies, went through nine editions in his lifetime, and was submitted to Parliament in support of abolition. Equiano was the first Igbo person to speak to the world.</p>';
+echo '<h2>The Igbo Landing Group (1803)</h2>';
+echo '<p>The unnamed Igbo men and women who chose death over enslavement at Dunbar Creek, Georgia, in 1803. Their identities are unknown but their act is remembered. They represent the thousands of enslaved Igbo people who resisted in whatever ways were available to them — through revolt, escape, sabotage, cultural preservation, and the maintenance of identity under conditions designed to destroy it.</p>';
+echo '<h2>Frederick Douglass (1818–1895)</h2>';
+echo '<p>The most important African-American abolitionist. Born into slavery in Maryland, Douglass escaped, educated himself, and became the leading intellectual voice of American abolitionism. Though not Igbo, his work intersects with the Igbo story — he documented the same system that consumed Igbo captives, and his arguments about humanity, dignity, and freedom speak across the African diaspora.</p>';
+echo '<h2>G. Ugo Nwokeji (contemporary)</h2>';
+echo '<p>The leading modern historian of the Igbo experience in the Atlantic slave trade. His work <em>The Slave Trade and Culture in the Bight of Biafra</em> (2010) is the most detailed scholarly study of how and why so many Igbo people were enslaved, the mechanisms of the trade, and its cultural consequences. Essential reading for serious students of the subject.</p>';
+echo '<h2>Chinua Achebe on the Osu</h2>';
+echo '<p>Achebe\'s novel <em>No Longer at Ease</em> (1960) is the most important literary treatment of the osu system in Igbo society — a story of a young man whose family forbids his marriage to a woman of osu status. By placing this conflict at the center of a novel, Achebe brought internal Igbo social hierarchies to international attention and opened a debate that continues today.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/sources/">Sources</a>';
+echo '</div></div>';

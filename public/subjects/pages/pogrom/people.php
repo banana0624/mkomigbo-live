@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key figures in the events of 1966 — victims, perpetrators, witnesses, and those who sought to prevent the catastrophe.</p>';
+echo '<h2>The Victims — The Unnamed Millions</h2>';
+echo '<p>The most important figures in the story of the 1966 pogroms are the tens of thousands of Igbo men, women, and children who were killed, and the more than one million who were displaced. Most of their names are unknown to history. They were traders, civil servants, teachers, nurses, railway workers, students — people who had built lives in the north over years and decades, who had become neighbors and colleagues, and who were killed for being Igbo. Their anonymity in the historical record is itself an indictment of how the events have been treated.</p>';
+echo '<h2>Nnamdi Azikiwe (1904–1996)</h2>';
+echo '<p>The first President of Nigeria and the most celebrated Igbo political figure of the 20th century. Azikiwe had devoted his life to Nigerian nationalism and unity — his vision of a united Nigeria in which all Nigerians were equal citizens. The 1966 pogroms and the civil war that followed were a personal as well as political catastrophe for him. He initially supported Biafra before eventually returning to a federal Nigeria position. His experience illustrates the impossible position of Igbo political leaders who had invested in Nigerian unity only to watch the state turn on their people.</p>';
+echo '<h2>Odumegwu Ojukwu (1933–2011)</h2>';
+echo '<p>Military governor of Eastern Nigeria from January 1966. Ojukwu received the million-plus refugees from the north and heard their accounts of what had happened. He became the most vocal advocate for Igbo security — demanding guarantees from the federal government that could not be provided — and ultimately the leader of the Biafran secession. Understanding Ojukwu requires understanding what he witnessed in 1966: the arrival of traumatized survivors, the bodies, the stories of organized murder. His decision to declare Biafra was made in that context.</p>';
+echo '<h2>Yakubu Gowon (b. 1934)</h2>';
+echo '<p>Head of state during the 1966 killings. Gowon was not personally responsible for organizing the pogroms — he had just taken power in a coup. But his government\'s failure to protect Igbo civilians, to prosecute perpetrators, or to provide adequate guarantees of security was catastrophic. His repudiation of the Aburi Accord made war inevitable. Whatever his intentions, his actions (and inactions) in 1966–1967 set Nigeria on the path to its worst catastrophe.</p>';
+echo '<h2>Ahmadu Bello (1910–1966)</h2>';
+echo '<p>The Sardauna of Sokoto and Premier of Northern Nigeria — the most powerful political figure in northern Nigeria. Killed in the January 1966 coup, his death became the primary grievance cited to justify the counter-coup and the violence against Igbo. His role in the events of 1966 is complex: he was a victim of the January coup, but he had also spent years promoting northern ethnic solidarity and treating Igbo presence in the north as an intrusion. The atmosphere he helped create made the pogroms possible.</p>';
+echo '<h2>Harold Wilson (1916–1995)</h2>';
+echo '<p>British Prime Minister during the 1966 killings and the subsequent civil war. Wilson\'s government chose not to publicly condemn the killings, supplied arms to the federal government throughout the war, and blocked international pressure for humanitarian intervention during the famine. His government\'s position — that Nigerian unity must be preserved regardless of the cost in Igbo lives — was a political choice with catastrophic humanitarian consequences. Declassified documents have revealed the extent of British knowledge of and responsibility for what occurred.</p>';
+echo '<h2>Philip Effiong (1925–2003)</h2>';
+echo '<p>Biafran military commander; ultimately the person who surrendered Biafra on January 15, 1970. A survivor of the catastrophe that began with the 1966 pogroms, his calm and dignified surrender speech — placing his people\'s welfare above political considerations — is one of the most remarkable documents to emerge from the entire period.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/pogrom/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/pogrom/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/pogrom/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/pogrom/sources/">Sources</a>';
+echo '</div></div>';

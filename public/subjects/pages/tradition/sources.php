@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key references for the study of Igbo tradition.</p>';
+echo '<h2>Essential Reading</h2>';
+echo '<ul>';
+echo '<li><strong>Chinua Achebe</strong> — <em>Things Fall Apart</em> (1958). The richest literary account of Igbo traditional life before and during colonization. Essential.</li>';
+echo '<li><strong>Chinua Achebe</strong> — <em>Arrow of God</em> (1964). Focuses on Igbo religious and political tradition during colonization.</li>';
+echo '<li><strong>Victor Uchendu</strong> — <em>The Igbo of Southeast Nigeria</em> (1965). The standard anthropological account, written by an Igbo scholar.</li>';
+echo '<li><strong>M.M. Green</strong> — <em>Igbo Village Affairs</em> (1947). Detailed early ethnographic account.</li>';
+echo '<li><strong>F.C. Ogbalu</strong> — <em>Ilu Igbo</em> (Igbo Proverbs). The standard proverb collection — proverbs are the primary encoded form of Igbo traditional wisdom.</li>';
+echo '<li><strong>Simon Ottenberg</strong> — <em>Masked Rituals of Afikpo</em> (1975). The definitive study of Igbo masquerade tradition.</li>';
+echo '<li><strong>Herbert Cole and Chike Aniakor</strong> — <em>Igbo Arts: Community and Cosmos</em> (1984). The most comprehensive survey of Igbo art and its relationship to tradition.</li>';
+echo '</ul>';
+echo '<h2>Proverbs as Primary Source</h2>';
+echo '<p>Igbo proverbs (ilu) are the primary encoded form of traditional wisdom. They carry legal, ethical, philosophical, and historical content in memorable, transmissible form. Key proverbs on tradition:</p>';
+echo '<ul>';
+echo '<li>"Ọ bụrụ na ọchịchọ agbagọ ọgbọ ya, ọ ga-azụ ọchịchọ" — If desire outruns its age-grade, it must go back and wait</li>';
+echo '<li>"Nna anyị dere ede, anyị na-eri ede" — Our fathers planted cocoyam; we eat cocoyam (tradition sustains us)</li>';
+echo '<li>"Onye wetara oji wetara ndụ" — He who brings kola brings life (the centrality of kola to social life)</li>';
+echo '<li>"Egbe bere, ugo bere, nke si ibe ya ebela nku kwapu ya" — Let the kite perch, let the eagle perch; whoever prevents the other from perching, may its wings break (live and let live — the core of Igbo pluralism)</li>';
+echo '</ul>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/tradition/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/tradition/topics/">Key Traditions</a>';
+echo '</div></div>';

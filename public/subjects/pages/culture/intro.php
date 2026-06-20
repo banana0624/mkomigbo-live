@@ -1,0 +1,27 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;"><strong>Igbo culture</strong> is the lived world of language, kinship, farming, markets, festivals, naming, art, music, storytelling, ritual expression, and everyday social values among the Igbo people of southeastern Nigeria and the wider diaspora.</p>';
+echo '<p>Culture is not only ceremonies and objects. It includes how people organize family life, how they greet, trade, marry, farm, celebrate, remember, mourn, teach children, and pass on moral knowledge. In the Igbo case, culture is both deeply local and widely shared across many communities.</p>';
+echo '<h2>What Makes Igbo Culture Distinctive</h2>';
+echo '<p>Several features set Igbo cultural life apart. The absence of a single centralized authority meant that cultural creativity was distributed — each community developed its own masquerades, festivals, and artistic traditions while sharing a common language, kinship system, and moral framework. This produced extraordinary diversity within unity.</p>';
+echo '<p>The Igbo week of four days — Eke, Orie, Afo, Nkwo — structured market life, farming cycles, and ritual observance. The chi — personal spiritual force — shaped ideas of individual destiny and responsibility. Ofo and ogu — righteous authority and clean hands — formed the ethical foundation of Igbo justice and leadership.</p>';
+echo '<h2>Key Dimensions</h2>';
+echo '<ul>';
+echo '<li><strong>Language and Orality</strong> — proverbs, storytelling, praise poetry, and the rich oral literature of Igbo life</li>';
+echo '<li><strong>Masquerades</strong> — Mmanwu traditions across Igboland — the most visible and complex form of Igbo performative art</li>';
+echo '<li><strong>Festivals</strong> — New Yam Festival (Iwa Ji), Ofala, Iri Ji, and hundreds of community-specific celebrations</li>';
+echo '<li><strong>Visual Arts</strong> — Uli body and wall painting, mbari houses, bronze casting, woodcarving, weaving, and pottery</li>';
+echo '<li><strong>Music</strong> — ogene, ekwe, oja, udu, igba — the instruments and ensemble traditions of Igbo music</li>';
+echo '<li><strong>Food Culture</strong> — ofe onugbu, oha soup, egusi, ji (yam) as cultural staple and symbol</li>';
+echo '<li><strong>Dress and Adornment</strong> — isi agu fabric, george wrapper, coral beads, and the significance of title dress</li>';
+echo '<li><strong>Kinship and Family</strong> — the umunna (patrilineage), the ụmụada (daughters), and the structure of compound life</li>';
+echo '</ul>';
+echo '<h2>Culture Under Pressure</h2>';
+echo '<p>Igbo culture has survived enormous pressure — the Atlantic slave trade, Christian missionary activity, British colonization, the civil war, and now the globalizing forces of modernity and migration. Much has been lost. Much has adapted. Much endures. This subject documents all three — the losses, the adaptations, and what remains vigorously alive.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/sources/">Sources</a>';
+echo '</div></div>';

@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key topics in the political and social history of Nigeria.</p>';
+echo '<h2>Ethnic Federalism — The Structural Problem</h2>';
+echo '<p>Nigeria\'s federal structure has always been organized around ethnic blocs. The original three regions — North, East, West — corresponded to Hausa-Fulani, Igbo, and Yoruba dominance. Gowon\'s division into 12 states (1967) and later expansions (now 36 states) were intended to dilute regional power but instead multiplied ethnic competition at a smaller scale. The result is a system in which ethnic identity is the primary resource of political mobilization and every federal appointment is scrutinized for its ethnic arithmetic.</p>';
+echo '<h2>Oil and the Resource Curse</h2>';
+echo '<p>Oil transformed Nigeria after its discovery in 1958. By the 1970s, oil revenues constituted over 80% of federal income. This created a "resource curse" — a rentier state in which political power equals control of oil revenues, rather than efficient management of a productive economy. Agriculture collapsed. Manufacturing never developed. The civil service became a patronage machine. Military governments used oil money to buy loyalty. The structural consequences of oil dependency have distorted Nigerian politics and economics for six decades.</p>';
+echo '<h2>The Igbo Question in Nigeria</h2>';
+echo '<p>The Igbo relationship with the Nigerian state is defined by three moments: the 1966 pogroms, the civil war, and the post-war marginalization. Despite official reconciliation, Igbo people have held the presidency only briefly (Aguiyi-Ironsi for six months in 1966 before being killed). Federal infrastructure investment in the Southeast has been consistently lower than in other zones. The IPOB movement reflects the accumulated frustration of a people who feel excluded from the country they helped build.</p>';
+echo '<h2>ENDSARS and Youth Protest</h2>';
+echo '<p>The October 2020 ENDSARS protests — initially demanding the abolition of the notorious Special Anti-Robbery Squad (SARS) police unit — became the largest youth uprising in Nigerian history. Millions of young Nigerians took to the streets across the country. The Lekki Toll Gate shooting on October 20, 2020 — in which soldiers fired on peaceful protesters in Lagos — became a defining moment. The protests showed the depth of youth alienation from the Nigerian political class and the potential for cross-ethnic mobilization around shared grievances.</p>';
+echo '<h2>Boko Haram and the Northeast</h2>';
+echo '<p>Boko Haram — founded in 2002, militant from 2009 — has killed over 36,000 people and displaced millions in northeastern Nigeria. The group\'s ideology combines extreme Salafi Islam with specific Nigerian political grievances about southern Christian domination and the failures of the secular state. Its persistence despite military pressure reflects deep structural problems — poverty, youth unemployment, and state failure — that no security operation alone can resolve.</p>';
+echo '<h2>The 2023 Election</h2>';
+echo '<p>The 2023 presidential election produced Nigeria\'s most contested result since the return to democracy. Bola Tinubu of the APC won with 37% of votes in a three-way race. His opponents — Peter Obi of the Labour Party (attracting unprecedented Igbo and youth support) and Atiku Abubakar of the PDP — challenged the result in court. The election demonstrated both the limits of ethnic voting (Obi won outside the Southeast) and the persistence of institutional weakness.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/sources/">Sources</a>';
+echo '</div></div>';

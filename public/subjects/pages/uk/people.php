@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key figures in the British-Nigerian experience.</p>';
+echo '<h2>Olaudah Equiano (c. 1745–1797)</h2>';
+echo '<p>The first and most important Igbo figure in British history. Enslaved as a child and transported to the Americas, Equiano eventually purchased his freedom and came to London, where he became a leading abolitionist. His autobiography (1789) was a bestseller; he lobbied Parliament, lectured across Britain, and was a central figure in the British abolitionist movement. He married a British woman (Susanna Cullen) and died in London. Equiano is the ancestor of the British-Nigerian relationship.</p>';
+echo '<h2>Nnamdi Azikiwe (1904–1996)</h2>';
+echo '<p>Though primarily associated with Nigerian nationalism and independence, Azikiwe spent significant time in Britain, was educated at Lincoln University (USA) and studied in London, and organized West African students in Britain in the 1940s. His political experience in Britain shaped his understanding of colonial power and informed his independence strategy.</p>';
+echo '<h2>Buchi Emecheta (1944–2017)</h2>';
+echo '<p>Nigerian-born novelist who lived most of her adult life in London. Her novels — <em>In the Ditch</em> (1972), <em>Second Class Citizen</em> (1974), <em>The Joys of Motherhood</em> (1979) — documented the experience of Nigerian women in Britain with unflinching honesty. She was one of the first significant literary voices to write about the British-Nigerian experience from the inside.</p>';
+echo '<h2>Ben Okri (b. 1959)</h2>';
+echo '<p>Nigerian-British novelist; his <em>The Famished Road</em> (1991) won the Booker Prize; it draws deeply on Yoruba cosmology (particularly the abiku spirit, parallel to the Igbo ọgbanje) while being written in English for international audiences. Okri has lived in London for most of his adult life and is one of the most important British writers of his generation.</p>';
+echo '<h2>Skepta (b. 1982)</h2>';
+echo '<p>Born Joseph Junior Adenuga in Tottenham, London, of Nigerian (Yoruba) parents. The leading figure of British grime music; his album <em>Konnichiwa</em> (2016) won the Mercury Prize. Skepta\'s music and persona negotiate British and Nigerian identity in ways that are culturally significant — he represents the second generation\'s synthesis of both worlds.</p>';
+echo '<h2>Baroness Floella Benjamin (b. 1949)</h2>';
+echo '<p>Trinidad-born, partly of Nigerian heritage; television presenter and peer; her work on children\'s television (Play School, Play Away) shaped the childhood of a generation of British children; now sits in the House of Lords and advocates for early years education.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/uk/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/uk/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/uk/topics/">Topics</a>';
+echo '</div></div>';

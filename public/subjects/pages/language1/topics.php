@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key topics in Igbo language study — from tones to scripts to revitalization.</p>';
+echo '<h2>Tones and Meaning</h2>';
+echo '<p>Understanding Igbo tones is essential to understanding the language. "Aka" (hand) and "àkà" (direction/side) differ only in tone. "Ọ bịara" (he/she came) and "ọ bịarā" (has he/she come?) differ in the tone of the final syllable. Tones carry grammatical information — distinguishing statements from questions, complete from incomplete actions, and in some cases entirely different words.</p>';
+echo '<h2>Igbo Proverbs — Ilu</h2>';
+echo '<p>Proverbs are the currency of Igbo rhetoric. Achebe famously wrote: "Among the Igbo the art of conversation is regarded very highly, and proverbs are the palm-oil with which words are eaten." Proverbs encode legal principles, ethical guidance, social wisdom, and historical memory in compact, memorable form. Learning Igbo proverbs is learning Igbo philosophy.</p>';
+echo '<h2>Writing Igbo — The Orthography Question</h2>';
+echo '<p>The question of how to write Igbo has been contested for over a century. Missionaries created the first written forms. The Önwu orthography (1961) brought partial standardization. Ndebe — an indigenous script created in 2009 — offers a non-Roman alternative. Each system makes different tradeoffs between ease of learning, cultural expression, and practical utility.</p>';
+echo '<h2>Nsịbịdị — Indigenous Signs</h2>';
+echo '<p>Nsịbịdị is a system of ideographic signs developed among the Igbo and Ibibio peoples of southeastern Nigeria. Used by the Ékpè (Leopard Society) and in other ritual contexts, Nsịbịdị signs encode social, spiritual, and philosophical meanings. Though not a phonetic writing system, Nsịbịdị represents an important tradition of Igbo visual communication that predates European contact.</p>';
+echo '<h2>Igbo Names — Nomenclature</h2>';
+echo '<p>Igbo names are a compressed language of their own. They encode theology ("Chukwuemeka" — God has done great things), philosophy ("Ifeanyi" — there is nothing like God), history ("Nnenna" — grandmother lives again), and aspiration ("Chidinma" — God is good). The system of names given at birth, earned through title, and taken in old age constitutes a biography in miniature. Understanding Igbo names is understanding Igbo worldview.</p>';
+echo '<h2>Language and Identity</h2>';
+echo '<p>The question of Igbo language maintenance is inseparable from the question of Igbo identity. For many diaspora Igbo, the language has been lost across one or two generations. For home communities, it is under pressure from English, Pidgin, and urban migration. What is at stake in Igbo language revitalization is not just communication — it is the survival of a worldview encoded in proverbs, names, ritual language, and oral literature that cannot be fully translated.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/sources/">Sources</a>';
+echo '</div></div>';

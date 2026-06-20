@@ -1,0 +1,134 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">African traditional religions in depth — Ọdinala (Igbo), Yoruba/Ifá, Akan, Zulu, Kongo, Vodou, and diaspora traditions.</p>';
+
+// ODINALA
+echo '<hr style="margin:28px 0;border:none;border-top:2px solid #e5e7eb;">';
+echo '<h2 style="color:#2d6a1f;">⊕ Ọdinala — Igbo Traditional Religion</h2>';
+echo '<p><strong>Region:</strong> Southeastern Nigeria | <strong>People:</strong> Igbo (~45 million) | <strong>Status:</strong> Living (minority practice alongside Christianity)</p>';
+echo '<h3>Origin</h3>';
+echo '<p>Ọdinala (also Odinani or Omenala — "the customs of the land") is the indigenous religious and ethical system of the Igbo people of southeastern Nigeria. It has no founder and no fixed scripture — it is a living tradition transmitted through ritual, oral literature, masquerade, and community practice. It predates written history in the region and shares structural features with other West African traditional religions while maintaining distinctively Igbo concepts.</p>';
+echo '<h3>Core Beliefs</h3>';
+echo '<ul>';
+echo '<li><strong>Chukwu</strong> — the Supreme Being, the Great Source (Chi + Ukwu = Great Spiritual Force). Chukwu is the ultimate reality, creator of all things, but does not intervene directly in human affairs. Approached through intermediaries.</li>';
+echo '<li><strong>Chi</strong> — the personal god or spiritual double of every individual. Chosen before birth, the chi accompanies a person through life and shapes their destiny. "Onye kwe, chi ya ekwe" — when a person agrees, their chi agrees. Human will and spiritual destiny are in active dialogue.</li>';
+echo '<li><strong>Alusi / Arusi</strong> — lesser deities, nature spirits, and divine forces serving specific functions. Each community has its own alusi with distinct identities, shrines, and ritual requirements.</li>';
+echo '<li><strong>Ala (Ana/Ani)</strong> — the earth goddess and most important deity in daily Igbo life. Owner of the land, source of fertility, guardian of morality. Crimes against community norms are "nso Ala" — abominations requiring purification.</li>';
+echo '<li><strong>Ndichie</strong> — the ancestors; respected dead who have passed into the spirit world and continue to influence the living. Ancestor veneration is central to Igbo religious practice.</li>';
+echo '<li><strong>Ọgbanje</strong> — spirit children who cycle between the spirit world and the living world, repeatedly being born and dying young. The iyi-uwa (covenant stone) binds them to this cycle.</li>';
+echo '<li><strong>Ọfọ</strong> — the ritual staff of ancestral authority and righteous power. Held by lineage heads and priests. To swear by the ọfọ is the most solemn Igbo oath.</li>';
+echo '<li><strong>Ọgụ</strong> — the concept of "clean hands" — moral innocence and freedom from wrongdoing. Ọfọ and ọgụ together represent legitimate authority grounded in moral rectitude.</li>';
+echo '<li><strong>Reincarnation</strong> — the Igbo believe in reincarnation, particularly within the family lineage. A dead grandparent may return as a grandchild, recognized by physical resemblance or behavior.</li>';
+echo '</ul>';
+echo '<h3>Major Deities and Spirit Forces</h3>';
+echo '<ul>';
+echo '<li><strong>Ala</strong> — earth goddess; morality, fertility, death (the dead are buried in her body)</li>';
+echo '<li><strong>Amadioha</strong> — sky and thunder deity; associated with lightning as divine justice</li>';
+echo '<li><strong>Agwu</strong> — deity of medicine, divination, and madness; patron of the dibia (healer/diviner)</li>';
+echo '<li><strong>Idemili</strong> — water deity (python) of the Idemili River; protector of the python (sacred in many Igbo communities)</li>';
+echo '<li><strong>Ogwugwu</strong> — deity of protection and justice</li>';
+echo '<li><strong>Ekwensu</strong> — deity of bargaining, trade, and cunning; often mischaracterized as "devil" by Christian missionaries</li>';
+echo '<li><strong>Imo mmiri</strong> — water spirits, often female; associated with wealth and beauty</li>';
+echo '</ul>';
+echo '<h3>The Dibia</h3>';
+echo '<p>The dibia is the Igbo specialist who mediates between the human and spirit worlds. There are different types: the dibia afa (divination specialist) uses systems such as afa (casting seeds or nuts) to diagnose spiritual causes of problems; the dibia ogwu (medicine specialist) prepares herbal, mineral, and spiritual preparations; the dibia mmuo (masquerade specialist) manages relationships with ancestral spirits. The dibia undergoes initiation and training under Agwu\'s patronage.</p>';
+echo '<h3>Mmanwu — Masquerades</h3>';
+echo '<p>The Mmanwu tradition is Ọdinala\'s most visible expression. Masquerades are understood as ancestral spirits (mmuo) manifesting in the physical world. They enforce social norms, celebrate community events, adjudicate disputes, and mark life transitions. Each community has its own masquerade traditions — some comic, some terrifying, some healing, some judicial. The identity of masquerade performers is secret; women and uninitiated men are traditionally forbidden from approaching certain masquerades.</p>';
+echo '<h3>Practices</h3>';
+echo '<ul>';
+echo '<li><strong>Oji — Kola nut ceremony</strong> — no significant gathering begins without kola; the prayer over kola (igo oji) invokes Chukwu, Chi, Ala, and the ancestors</li>';
+echo '<li><strong>New Yam Festival (Iri Ji / Iwa Ji)</strong> — the most important communal celebration; thanksgiving for the harvest; first yam eaten ceremonially before the community</li>';
+echo '<li><strong>Funerary rites (Ikwa ozu)</strong> — elaborate ceremonies lasting days; masquerades, music, feasting; second burials for prominent persons</li>';
+echo '<li><strong>Divination (Afa)</strong> — consulting the dibia to understand spiritual causes of illness, misfortune, or conflict</li>';
+echo '<li><strong>Libation</strong> — pouring of palm wine or water on the ground to communicate with ancestors</li>';
+echo '<li><strong>Mbari</strong> — elaborate sculpted mud houses created as offerings to Ala; produced collectively by community members in a state of ritual seclusion</li>';
+echo '</ul>';
+
+// YORUBA
+echo '<hr style="margin:28px 0;border:none;border-top:2px solid #e5e7eb;">';
+echo '<h2 style="color:#553c9a;">⊕ Yoruba Religion / Ifá</h2>';
+echo '<p><strong>Region:</strong> Southwestern Nigeria, Benin Republic, Togo | <strong>People:</strong> Yoruba (~40 million in origin area) | <strong>Diaspora:</strong> Cuba (Santería/Lucumí), Brazil (Candomblé), Haiti (Vodou elements), USA</p>';
+echo '<h3>Origin</h3>';
+echo '<p>The Yoruba religious tradition is one of the most sophisticated indigenous religious systems in Africa and one of the most influential globally through the African diaspora. Centered on the sacred city of Ilé-Ifẹ̀ (the mythological birthplace of humanity), it centers on a Supreme Being (Olodumare) served through 401 divine intermediaries (Orishas) and the divination system of Ifá — one of the most complex oracle systems in the world, inscribed by UNESCO on the List of Intangible Cultural Heritage.</p>';
+echo '<h3>Core Beliefs</h3>';
+echo '<ul>';
+echo '<li><strong>Olodumare (Olorun)</strong> — the Supreme Being; all-knowing, all-powerful, but remote; does not intervene directly in human affairs.</li>';
+echo '<li><strong>Orishas</strong> — divine intermediaries between Olodumare and humanity; 401 in number; each governs specific domains of life; humans develop special relationships with their own Orisha.</li>';
+echo '<li><strong>Ori</strong> — the personal guardian spirit (comparable to the Igbo Chi); chosen before birth; key to personal destiny.</li>';
+echo '<li><strong>Ifá</strong> — the divination system; the voice of Orunmila (Orisha of wisdom and divination); a corpus of 256 chapters (Odù) containing the totality of divine knowledge.</li>';
+echo '<li><strong>Ancestor veneration (Egúngún)</strong> — ancestors are honored through the Egúngún masquerade tradition.</li>';
+echo '<li><strong>Àṣà</strong> — character/essence; moral cultivation is central to Yoruba ethics.</li>';
+echo '</ul>';
+echo '<h3>Major Orishas</h3>';
+echo '<ul>';
+echo '<li><strong>Ẹṣù (Elegba/Legba)</strong> — trickster, gatekeeper, messenger; no ritual begins without honoring Ẹṣù first; mischaracterized as "devil" by missionaries</li>';
+echo '<li><strong>Obatala</strong> — creator of human bodies; deity of purity, creativity, and wisdom</li>';
+echo '<li><strong>Shango</strong> — Orisha of thunder, lightning, and justice; historical king of Oyo deified after death</li>';
+echo '<li><strong>Yemọja</strong> — mother of waters, goddess of the ocean; particularly important in the diaspora</li>';
+echo '<li><strong>Ọṣun (Oshun)</strong> — goddess of rivers, love, beauty, and fertility; associated with sweet water</li>';
+echo '<li><strong>Ogun</strong> — Orisha of iron, war, and labor; patron of warriors, blacksmiths, and drivers</li>';
+echo '<li><strong>Orunmila</strong> — Orisha of wisdom, knowledge, and Ifá divination</li>';
+echo '<li><strong>Oya</strong> — goddess of storms, change, and the marketplace; associated with death and transformation</li>';
+echo '</ul>';
+echo '<h3>Ifá Divination</h3>';
+echo '<p>Ifá is the divination system of the Yoruba, practiced by specialist priests (Babalawos — "fathers of the secret"). The babalawo casts 16 palm nuts or a divination chain (opele) and interprets the resulting pattern as one of 256 Odù — chapters containing poems, stories, and prescriptions. Each Odù is associated with specific Orishas, specific medicines, and specific life situations. Ifá provides guidance for every major life decision. The Ifá corpus, which may contain 256 × 800+ verses, is the largest oral literature tradition in Africa.</p>';
+echo '<h3>Diaspora Traditions</h3>';
+echo '<ul>';
+echo '<li><strong>Candomblé</strong> (Brazil) — Yoruba tradition preserved through 300 years of slavery; Orishas called Orixás; major terreiros (temples) in Bahia</li>';
+echo '<li><strong>Santería / Lucumí / Regla de Ocha</strong> (Cuba) — Orishas syncretized with Catholic saints under slavery; now practiced globally</li>';
+echo '<li><strong>Vodou</strong> (Haiti) — blend of Yoruba, Fon/Ewe, Kongo, and Catholic elements; Lwa (spirits) instead of Orishas</li>';
+echo '<li><strong>Trinidad Orisha</strong> — Yoruba tradition in Trinidad</li>';
+echo '</ul>';
+
+// AKAN
+echo '<hr style="margin:28px 0;border:none;border-top:2px solid #e5e7eb;">';
+echo '<h2 style="color:#744210;">⊕ Akan Religion</h2>';
+echo '<p><strong>Region:</strong> Ghana, Côte d\'Ivoire | <strong>People:</strong> Akan (Ashanti, Fante, Twi-speaking peoples)</p>';
+echo '<h3>Core Beliefs</h3>';
+echo '<ul>';
+echo '<li><strong>Nyame</strong> — the Supreme Being, sky god and creator. Omniscient and omnipotent but approached through lesser spirits.</li>';
+echo '<li><strong>Asase Ya</strong> — earth goddess, second in importance to Nyame; no cultivation on Thursdays (her sacred day)</li>';
+echo '<li><strong>Obosom</strong> — lesser deities inhabiting rivers, trees, and natural phenomena</li>';
+echo '<li><strong>Sunsum</strong> — the personal spirit/soul; the seat of personality and character</li>';
+echo '<li><strong>Kra</strong> — the divine spark within each person, given by Nyame; returns to Nyame at death</li>';
+echo '<li><strong>Ancestors (Nsamanfo)</strong> — venerated dead who continue to influence the living</li>';
+echo '<li><strong>Stools</strong> — sacred wooden stools are the Akan equivalent of thrones and spiritual repositories; the Golden Stool of the Ashanti is their most sacred object</li>';
+echo '</ul>';
+
+// ZULU
+echo '<hr style="margin:28px 0;border:none;border-top:2px solid #e5e7eb;">';
+echo '<h2 style="color:#1a365d;">⊕ Zulu / Nguni Religion</h2>';
+echo '<p><strong>Region:</strong> South Africa (KwaZulu-Natal) | <strong>People:</strong> Zulu, Xhosa, Swazi, Ndebele</p>';
+echo '<h3>Core Beliefs</h3>';
+echo '<ul>';
+echo '<li><strong>Unkulunkulu</strong> — the first being/ancestor, sometimes called creator; "the Ancient One"; his role varies by interpretation</li>';
+echo '<li><strong>Amadlozi</strong> — ancestors; the most important spiritual beings in daily Zulu religious life; they protect and guide descendants; offended ancestors cause illness and misfortune</li>';
+echo '<li><strong>Isangoma</strong> — diviner; medium between the living and the ancestors; typically female; called by the ancestors through illness (ukuthwasa) and undergoes initiation</li>';
+echo '<li><strong>Inyanga</strong> — herbalist; treats physical illness with plant medicines</li>';
+echo '<li><strong>Umuthi</strong> — medicine, both physical and spiritual</li>';
+echo '<li><strong>Ubuntu</strong> — "I am because we are" — the philosophical foundation of Nguni ethics: personhood is constituted through relationship with others</li>';
+echo '</ul>';
+
+// KONGO
+echo '<hr style="margin:28px 0;border:none;border-top:2px solid #e5e7eb;">';
+echo '<h2 style="color:#2d3748;">⊕ Kongo Religion</h2>';
+echo '<p><strong>Region:</strong> DRC, Republic of Congo, Angola | <strong>Diaspora:</strong> Cuba (Palo Monte), Brazil (Umbanda/Candomblé elements), Haiti</p>';
+echo '<h3>Core Beliefs</h3>';
+echo '<ul>';
+echo '<li><strong>Nzambi</strong> — the Supreme Being, creator; both transcendent and immanent</li>';
+echo '<li><strong>Bakulu</strong> — ancestors; the most important spiritual agents in Kongo religion</li>';
+echo '<li><strong>Minkisi (sing. Nkisi)</strong> — power objects; containers of spiritual force; some of the most powerful sacred objects in Central African religion</li>';
+echo '<li><strong>Kindoki</strong> — spiritual power that can be used for good or ill; witchcraft when misused</li>';
+echo '<li><strong>The Cosmogram (Dikenga dia Kongo)</strong> — the cross within a circle representing the cycle of life, death, and rebirth; the four points represent birth, maturity, death, and ancestral existence. This symbol influenced the cross in Kongo Christianity and appears in African-American religious traditions.</li>';
+echo '</ul>';
+echo '<h3>Diaspora</h3>';
+echo '<p>Kongo religious traditions are among the most important sources for African-American spiritual traditions. Palo Monte in Cuba preserves Kongo practice most directly. The influence of the Dikenga cosmogram can be traced in hoodoo, rootwork, and various African-American spiritual practices.</p>';
+
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/religion/overview/">Full Map</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/religion/topics/">Ancient Religions</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/religion/eastern/">Eastern Religions</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/religion/abrahamic/">Abrahamic Religions</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/religion/modern/">Modern Religions</a>';
+echo '</div></div>';

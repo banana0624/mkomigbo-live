@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The structure, history, and politics of Nigeria — from amalgamation to the present.</p>';
+echo '<h2>The Colonial Creation</h2>';
+echo '<p>Nigeria was created in 1914 when Lord Lugard amalgamated the Protectorate of Northern Nigeria and the Colony and Protectorate of Southern Nigeria. The north was predominantly Muslim, governed through Hausa-Fulani emirate structures. The south was predominantly Christian and traditionalist, comprising hundreds of different peoples including the Yoruba, Igbo, Ibibio, Efik, Ijaw, and Edo. These two halves shared little — different legal systems, different administrative traditions, different economies. Their forced union created tensions that independence could not resolve.</p>';
+echo '<h2>Independence and the First Republic (1960–1966)</h2>';
+echo '<p>Nigeria became independent on October 1, 1960. The First Republic was a parliamentary federation of three regions — North, East, and West — each dominated by its major ethnic group. Regional competition quickly became ethnic competition. The 1962 Action Group crisis, the 1963–64 census controversy, and the 1964–65 federal elections were all marked by fraud and manipulation. By January 1966, the civilian order had lost legitimacy.</p>';
+echo '<h2>Military Rule and the Civil War (1966–1979)</h2>';
+echo '<p>Nigeria spent most of 1966–1999 under military rule. The civil war (1967–1970) was the defining trauma of the military era. After the war, oil revenues created a patronage economy that cemented military power. Gowon, Murtala Muhammed, Obasanjo, Buhari, Babangida, and Abacha each left their mark — some through violence and corruption, others through institution-building.</p>';
+echo '<h2>The Fourth Republic (1999–Present)</h2>';
+echo '<p>The return to civilian rule in 1999 produced a flawed but durable democracy. Olusegun Obasanjo served two terms (1999–2007). Umaru Yar\'Adua died in office (2010), succeeded by Goodluck Jonathan — the first Niger Delta presidency. Muhammadu Buhari won in 2015 and 2019. Bola Tinubu won the contested 2023 election. Each presidency has reflected different aspects of Nigeria\'s ethnic and regional arithmetic.</p>';
+echo '<h2>Security Crises</h2>';
+echo '<p>Contemporary Nigeria faces multiple overlapping security crises: Boko Haram and ISWAP insurgency in the northeast; banditry and farmer-herder conflict in the northwest and middle belt; IPOB agitation and security operations in the southeast; oil bunkering and pipeline attacks in the Niger Delta. These crises reflect structural failures — inequality, unemployment, ethnic exclusion, and the failure of the state to provide security and basic services to its citizens.</p>';
+echo '<h2>Nigeria\'s Potential</h2>';
+echo '<p>Despite its crises, Nigeria\'s potential is extraordinary. It has Africa\'s largest economy, its largest population, and its most dynamic entrepreneurial culture. Nollywood is the second largest film industry in the world. Afrobeats dominates global popular music. Nigerian tech startups attract billions in investment. The challenge is whether Nigeria\'s political class can build institutions adequate to the country\'s potential — or whether the structural failures of the post-colonial state will continue to squander it.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/people/">People</a>';
+echo '</div></div>';

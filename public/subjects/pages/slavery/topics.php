@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key topics in the history of slavery — trade, resistance, abolition, and legacy.</p>';
+echo '<h2>The Aro Network and the Slave Trade</h2>';
+echo '<p>The Aro Chukwu oracle at Arochukwu was the most important religious and judicial institution in precolonial Igboland. The Aro people — the oracle\'s custodians and traders — built a vast commercial network across Igboland and beyond. In the 18th and 19th centuries, this network became deeply entangled with the Atlantic slave trade. Oracle "judgments" produced captives who were sold. Aro long-distance traders moved enslaved people to coastal ports. The British destruction of the oracle in 1902 was intended to dismantle this network.</p>';
+echo '<h2>Igbo Landing — Resistance Through Death</h2>';
+echo '<p>In 1803, a group of enslaved Igbo people were transported to St. Simons Island, Georgia. Upon landing, they drowned their captors, and then — led by their chief — walked into Dunbar Creek singing, choosing death over enslavement. This event — known as Igbo Landing — became one of the most powerful stories of enslaved resistance in American history. It is commemorated annually and has inspired novels, plays, and films. Whether historically accurate in all details, it captures something true about Igbo responses to enslavement.</p>';
+echo '<h2>The Bight of Biafra — Geography of the Trade</h2>';
+echo '<p>The Bight of Biafra was exceptional in the Atlantic slave trade for the high proportion of Igbo among those exported. The major ports were Calabar (Cross River), Bonny (Rivers State), and Brass (Bayelsa State). Calabar was controlled by the Efik people, who became skilled intermediaries in the trade. Bonny was dominated by the Ijaw. The trade transformed these coastal communities — creating new elites, new social stratifications, and deep entanglements with European commercial interests.</p>';
+echo '<h2>Abolition — The Long Struggle</h2>';
+echo '<p>The abolition of the slave trade was not a gift from enlightened Europeans — it was the product of decades of struggle by enslaved people themselves (slave revolts, the Haitian Revolution), by free Black abolitionists (Frederick Douglass, Olaudah Equiano), and by a white abolitionist movement in Britain and America. Britain abolished the trade in 1807 but continued to profit from slave-produced goods. Full emancipation in British colonies came in 1833. In the United States, it required a civil war (1865) to end chattel slavery.</p>';
+echo '<h2>The Osu Caste — Internal Exclusion</h2>';
+echo '<p>The osu system is one of the most difficult and contested aspects of Igbo social life. Chinua Achebe addressed it directly in <em>No Longer at Ease</em> — a novel about an Igbo man whose family forbids his marriage to an osu woman. Despite legal prohibition (the Osu Abolition Law of 1956 in Eastern Nigeria) and Church opposition, the stigma persists. Young Igbo people in diaspora communities report that osu status still affects marriage negotiations. The system raises profound questions about inherited identity and social justice that Igbo communities are working through.</p>';
+echo '<h2>Legacy in the Americas</h2>';
+echo '<p>The Igbo presence in the Americas is traceable through linguistic survivals, cultural practices, and increasingly through DNA genealogy. The Gullah communities of South Carolina and Georgia — who preserved more African cultural continuity than almost any other African-American community — have documented Igbo linguistic and cultural elements. In Jamaica and Trinidad, Igbo cultural memory survived in oral tradition. The growing field of African diaspora studies is recovering these connections.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/slavery/sources/">Sources</a>';
+echo '</div></div>';

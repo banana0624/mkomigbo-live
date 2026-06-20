@@ -1,0 +1,20 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">IPOB and modern Igbo activism — context, history, and current state.</p>';
+echo '<h2>What is IPOB?</h2>';
+echo '<p>The Indigenous People of Biafra (IPOB) is a separatist movement founded by Nnamdi Kanu in 2012, advocating for an independent Biafran state through a referendum. It grew rapidly in the mid-2010s, attracting millions of followers across the Igbo diaspora and in southeastern Nigeria. The Nigerian government declared it a terrorist organization in 2017. Its leadership operates from exile; its followers in Nigeria face regular security operations.</p>';
+echo '<h2>Why IPOB Exists</h2>';
+echo '<p>IPOB did not emerge in a vacuum. It is the product of accumulated Igbo grievances: the unresolved wounds of the civil war, post-war economic marginalization, infrastructure neglect in the Southeast, underrepresentation in the federal military and civil service, and the failure of successive Nigerian governments to address Igbo political concerns. For its supporters, IPOB represents the logical conclusion of decades of marginalization within a Nigerian state that has never fully delivered on its promise of equality.</p>';
+echo '<h2>Nnamdi Kanu</h2>';
+echo '<p>IPOB\'s founder and leader. Born in Abia State, educated in the UK, Kanu founded Radio Biafra and built IPOB into a mass movement through social media and radio broadcasting. He was arrested in Nigeria in 2015, released in 2017 on health grounds, then disappeared to avoid rearrest. He was controversially rearrested in Kenya in 2021 and extradited to Nigeria, where he faces terrorism charges. His trial has become a focal point of Igbo political tension.</p>';
+echo '<h2>The Sit-at-Home</h2>';
+echo '<p>IPOB\'s sit-at-home orders — calling on Igbo people to stay home on designated dates, particularly May 30 (Biafra Day) and court dates for Nnamdi Kanu — have been enforced with increasing violence by groups claiming IPOB affiliation. Businesses in southeastern Nigeria have suffered significantly. The sit-at-home has become a symbol of both the depth of Igbo grievance and the costs of political paralysis in the region.</p>';
+echo '<h2>Beyond IPOB — The Broader Context</h2>';
+echo '<p>IPOB is the most visible expression of Igbo political discontent but not the only one. The Ohanaeze Ndigbo (the apex Igbo socio-cultural organization), Igbo governors, and various civil society groups advocate for Igbo interests through different means. The 2023 Peter Obi presidential campaign showed that Igbo political energy could also be channeled into federal engagement. The debate within Igbo communities about the right path — separation, restructuring, or engagement — is genuine and unresolved.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/resistance/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/resistance/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/resistance/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/resistance/sources/">Sources</a>';
+echo '</div></div>';

@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The causes, course, and consequences of the Nigeria-Biafra war — a structured overview.</p>';
+echo '<h2>The Colonial Foundation</h2>';
+echo '<p>Nigeria was created by British colonialism — not by its peoples. The 1914 amalgamation of Northern and Southern Nigeria joined communities with profoundly different histories, languages, religions, and political systems under a single administrative framework. The British governed through "indirect rule," working with existing elites in the north and creating artificial ones in the south. This structure created permanent tensions between regions that independence in 1960 did not resolve.</p>';
+echo '<h2>The First Republic (1960–1966)</h2>';
+echo '<p>Independent Nigeria\'s First Republic was marked by intense regional competition, electoral fraud, and ethnic mobilization. The Action Group crisis (1962), the census controversy (1963–64), and the disputed federal elections of 1964–65 progressively delegitimized the civilian political order. By January 1966, military intervention was widely anticipated.</p>';
+echo '<h2>The Coups of 1966</h2>';
+echo '<p>The January 15, 1966 coup killed the Prime Minister, the Northern and Western Premiers, and senior military officers — predominantly northern and western in identity. Though led by Igbo officers, not all its victims were from other groups. The counter-coup of July 29, 1966 was explicitly ethnic in character — northern officers killing Igbo officers across Nigeria. General Yakubu Gowon, a northerner from a minority ethnic group, took power.</p>';
+echo '<h2>The Pogroms (1966)</h2>';
+echo '<p>Between May and October 1966, Igbo people living in northern Nigeria were subjected to mass violence — killings, destruction of property, and forced displacement. Estimates of the dead range from 10,000 to 30,000. Over a million Igbo fled south. These events transformed the political crisis into an existential one for Igbo people and made the question of remaining within Nigeria impossible to avoid.</p>';
+echo '<h2>Aburi and Its Failure</h2>';
+echo '<p>In January 1967, Gowon and Ojukwu met in Aburi, Ghana, under the mediation of Ghana\'s military government. They signed an accord providing for a loose confederation — each region would have substantial autonomy while sharing certain federal functions. The Aburi Accord was welcomed in the east as a solution. It was repudiated by the federal government — under pressure from British advisers, senior civil servants, and other regional interests — within weeks. The failure of Aburi made war nearly inevitable.</p>';
+echo '<h2>The War (1967–1970)</h2>';
+echo '<p>Biafra declared independence on May 30, 1967. Federal forces invaded on July 6. The war proceeded in three phases: early Biafran advances (including a brief occupation of the midwest), a long federal encirclement, and the final compression of Biafran territory into a shrinking enclave. Britain and the Soviet Union supplied the federal government with weapons. France, Ivory Coast, Tanzania, Zambia, and Haiti recognized Biafra or supplied it covertly.</p>';
+echo '<h2>International Dimensions</h2>';
+echo '<p>The Biafran war was the first African conflict to receive sustained international media coverage. The images of starving children — distributed by the Biafran government\'s sophisticated public relations operation and by independent journalists — generated unprecedented public pressure for humanitarian intervention. It directly contributed to the creation of Médecins Sans Frontières (Doctors Without Borders) in 1971, whose founders were radicalized by their experience in Biafra.</p>';
+echo '<h2>Post-War Settlement</h2>';
+echo '<p>The post-war settlement was paradoxical. Officially, there was reconciliation — no trials, no reparations claimed, nominal reintegration. In practice, Igbo people found themselves systematically disadvantaged: bank savings confiscated, properties in other regions unrecovered, seniority in the civil service and military lost. The oil wealth of the Niger Delta — partly in former Biafran territory — flowed to the federal government. The structural causes of the war were never addressed.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/sources/">Sources</a>';
+echo '</div></div>';

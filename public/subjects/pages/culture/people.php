@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Artists, writers, musicians, and cultural custodians who shaped and expressed Igbo culture.</p>';
+echo '<h2>Chinua Achebe (1930–2013)</h2>';
+echo '<p>The novelist whose work did more than any other single person to document and transmit Igbo cultural life to the world. <em>Things Fall Apart</em>, <em>Arrow of God</em>, and <em>No Longer at Ease</em> together constitute the richest literary record of Igbo culture in the colonial and post-colonial period. Achebe also wrote extensively on the politics of African literature and on the civil war.</p>';
+echo '<h2>Flora Nwapa (1931–1993)</h2>';
+echo '<p>The first African woman to be published by a major international publisher. Nwapa\'s novels <em>Efuru</em> (1966) and <em>Idu</em> (1970) centred Igbo women\'s lives — their relationships, their spirituality, and their agency — at a time when African literature was dominated by male perspectives. She also founded her own publishing house in Nigeria, Tana Press, making her a pioneer in African publishing as well as literature.</p>';
+echo '<h2>Chimamanda Ngozi Adichie (b. 1977)</h2>';
+echo '<p>The most celebrated Nigerian writer of her generation. <em>Purple Hibiscus</em>, <em>Half of a Yellow Sun</em>, and <em>Americanah</em> brought Igbo experience to global audiences. Her TED talks — "The Danger of a Single Story" and "We Should All Be Feminists" — have been among the most watched literary talks in the world. Adichie represents the continuity of the Igbo literary tradition into the 21st century.</p>';
+echo '<h2>Christopher Okigbo (1932–1967)</h2>';
+echo '<p>The most celebrated Igbo poet of the 20th century. Okigbo\'s poetry — dense, allusive, drawing on Igbo cosmology, classical literature, and jazz — represented a new direction in African writing. He was killed fighting for Biafra in 1967, aged 35. His death is one of the great losses of the civil war for African literature.</p>';
+echo '<h2>Chief Stephen Osita Osadebe (1936–2007)</h2>';
+echo '<p>The "Sweet Maestro" — one of the greatest Igbo highlife musicians of the 20th century. Osadebe\'s music combined traditional Igbo rhythms and proverbs with the highlife sound, creating recordings that remain beloved across generations. His music is a major archive of Igbo oral culture set to sound.</p>';
+echo '<h2>Uche Okeke (1933–2016)</h2>';
+echo '<p>The founder of the Zaria Art Society and one of the pioneers of modern Nigerian art. Okeke developed the "Natural Synthesis" — a theory of African modernism that drew on indigenous traditions, particularly Uli, to create a distinctively African visual language. His work transformed Nigerian art education and laid the foundation for contemporary Nigerian visual art.</p>';
+echo '<h2>Ada Uzoamaka Azikiwe</h2>';
+echo '<p>Cultural activist and scholar working on the preservation of Igbo oral traditions, women\'s history, and the revival of cultural practices at risk of being lost. Represents the growing movement of Igbo scholars documenting culture from the inside.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/sources/">Sources</a>';
+echo '</div></div>';

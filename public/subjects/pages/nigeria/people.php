@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key figures in Nigerian political and public life.</p>';
+echo '<h2>Nnamdi Azikiwe (1904–1996)</h2>';
+echo '<p>The father of Nigerian nationalism and the most celebrated Igbo political figure of the 20th century. Azikiwe\'s NCNC party, West African Pilot newspaper, and pan-Africanist vision shaped the independence movement. As Nigeria\'s first President (1963–1966), he represented the possibility of Nigerian unity. His overthrow in the 1966 coup ended that possibility.</p>';
+echo '<h2>Obafemi Awolowo (1909–1987)</h2>';
+echo '<p>The dominant Yoruba political figure of the 20th century and Azikiwe\'s great rival. As federal Finance Commissioner during the civil war, Awolowo is associated — controversially — with the economic policies that devastated Igbo post-war recovery. His statement on starvation as a weapon of war (disputed) haunts his legacy in Igbo memory.</p>';
+echo '<h2>Ahmadu Bello (1910–1966)</h2>';
+echo '<p>The Sardauna of Sokoto and Premier of Northern Nigeria — the most powerful figure in pre-coup Nigerian politics. His assassination in the January 1966 coup was the trigger for the northern backlash that led to the July counter-coup and eventually the civil war.</p>';
+echo '<h2>Yakubu Gowon (b. 1934)</h2>';
+echo '<p>Head of state during the civil war (1966–1975). His "No Victor, No Vanquished" declaration after the war was generous in spirit but inadequate in practice. He was overthrown in 1975 while attending an OAU summit.</p>';
+echo '<h2>Ken Saro-Wiwa (1941–1995)</h2>';
+echo '<p>Ogoni writer and activist executed by the Abacha regime for his campaign against Shell and the federal government\'s exploitation of Niger Delta oil. His execution caused international outrage and Nigeria\'s suspension from the Commonwealth. He remains the most important human rights martyr of post-civil war Nigeria.</p>';
+echo '<h2>Peter Obi (b. 1961)</h2>';
+echo '<p>Former governor of Anambra State and Labour Party presidential candidate in 2023. His campaign — the "Obidient" movement — attracted unprecedented cross-ethnic youth support and demonstrated that a new kind of Nigerian politics was possible, even if the existing structures ultimately prevented his victory.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/nigeria/sources/">Sources</a>';
+echo '</div></div>';

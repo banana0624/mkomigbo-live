@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The broad structure of Igbo cultural life — from the compound to the cosmos.</p>';
+echo '<h2>The Compound as Cultural Centre</h2>';
+echo '<p>Igbo cultural life begins in the compound — the obi, the central meeting space of the patrilineage. Here elders gather, titles are conferred, disputes are settled, and the dead are remembered. The compound is both physical space and social institution, organizing kinship, authority, and memory across generations.</p>';
+echo '<h2>The Four-Day Week</h2>';
+echo '<p>The Igbo calendar is organized around a four-day market week — Eke, Orie, Afo, Nkwo. Each day has its associated market, its ritual significance, and its place in the agricultural and ceremonial cycle. A child born on Eke is named Nwaeke. A man born on Afo carries that name. Time is not just measured — it is named, embodied, and lived.</p>';
+echo '<h2>Yam as Cultural Staple</h2>';
+echo '<p>The yam (ji) holds a special place in Igbo culture that goes beyond nutrition. It is the "king of crops" — associated with male prestige, agricultural mastery, and communal celebration. The New Yam Festival (Iwa Ji or Iri Ji) marks the end of the farming year and the beginning of the harvest. It is one of the most important communal events in the Igbo calendar — a moment of thanksgiving, social display, and renewal.</p>';
+echo '<h2>Masquerades — Mmanwu</h2>';
+echo '<p>The Mmanwu tradition is the most visible and complex form of Igbo performative culture. Masquerades are understood as manifestations of ancestral spirits — the dead returning to the world of the living to enforce social norms, celebrate community events, or mark transitions. Each community has its own masquerade traditions, costumes, and protocols. Mmanwu can be comic or terrifying, healing or punishing, celebratory or judicial.</p>';
+echo '<h2>Uli — Body and Wall Art</h2>';
+echo '<p>Uli is the tradition of decorative line drawing practised by Igbo women — applied to the body for ceremonies and to the walls of houses and shrines. The designs are abstract and symbolic, drawn freehand with extraordinary skill. Uli was largely suppressed during the colonial period as "pagan" but has experienced significant revival as a recognized art form with influence on modern Nigerian painting and design.</p>';
+echo '<h2>Oral Literature</h2>';
+echo '<p>Igbo oral literature is vast — proverbs (ilu), folktales (akuko ifo), praise poetry (ibu), dirges, riddles, and tongue-twisters. The proverb is the foundation of Igbo rhetoric: "Onye wetara oji wetara ndụ" — he who brings kola brings life. Proverbs carry legal, ethical, and philosophical weight. They are cited in courts, at meetings, and in everyday conversation as authoritative references.</p>';
+echo '<h2>Music and Sound</h2>';
+echo '<p>Igbo music traditions are rich and varied. The ogene (metal gong), ekwe (slit drum), udu (clay pot drum), oja (flute), and igba (drum) form the core instrumental ensemble. Music accompanies every major social event — funerals, title-taking, festivals, masquerades, and harvest celebrations. The highlife tradition, pioneered in part by Igbo musicians in the mid-20th century, is one of West Africa\'s most influential popular music forms.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/culture/sources/">Sources</a>';
+echo '</div></div>';

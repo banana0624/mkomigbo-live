@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key figures in the Biafran story — leaders, soldiers, writers, and witnesses.</p>';
+echo '<h2>Odumegwu Ojukwu (1933–2011)</h2>';
+echo '<p>The leader of Biafra. Born into one of the wealthiest Igbo families, Oxford-educated, and a career military officer, Ojukwu became military governor of Eastern Nigeria in 1966. He declared Biafra on May 30, 1967 and led the war effort until his flight to the Ivory Coast on January 11, 1970. He returned to Nigeria in 1982 after a presidential pardon and remained a charismatic political figure until his death. To his supporters he is the father of the nation; to critics he led his people into a catastrophe that could have been avoided.</p>';
+echo '<h2>Yakubu Gowon (b. 1934)</h2>';
+echo '<p>Head of the Nigerian federal government throughout the war. A northerner from the minority Angas ethnic group, Gowon was thrust into leadership by the July 1966 counter-coup. His declaration of "No Victor, No Vanquished" after the war and his stated commitment to reconciliation were genuine — but he lacked the political power or will to implement the structural changes that genuine reconciliation would have required. He was overthrown in 1975.</p>';
+echo '<h2>Philip Effiong (1925–2003)</h2>';
+echo '<p>Biafra\'s last leader. When Ojukwu fled, Effiong was left to surrender. His surrender speech of January 15, 1970 — calm, dignified, placing the welfare of his people above all political considerations — is one of the most remarkable documents of the war\'s end. He accepted federal authority and called on Biafran soldiers to lay down their arms. He died in relative obscurity, his contribution to ending the war with minimum further loss of life insufficiently recognized.</p>';
+echo '<h2>Chinua Achebe (1930–2013)</h2>';
+echo '<p>The war\'s most important literary witness. Achebe served in the Biafran government\'s diplomatic and cultural efforts during the war. His final work, <em>There Was a Country</em> (2012), published a year before his death, gave his full account of the causes, conduct, and meaning of the war — and caused controversy by naming individuals and assigning responsibility. It is essential reading for anyone seeking to understand Biafra through Igbo eyes.</p>';
+echo '<h2>Christopher Okigbo (1932–1967)</h2>';
+echo '<p>The greatest Igbo poet of the 20th century, killed fighting for Biafra at the rank of Major in 1967, aged 35. Okigbo turned down the 1966 Langston Hughes Prize for African poetry, saying he wrote as an Igbo man, not as an African. His death — like the death of so many young Igbo intellectuals in the war — represents a loss to African culture that cannot be quantified.</p>';
+echo '<h2>Emeka Ojukwu\'s Mother — Biafran Civilians</h2>';
+echo '<p>The millions of Biafran civilians — women, children, farmers, traders, teachers — who endured the war and famine are its truest protagonists. Their experience is documented in memoirs, oral histories, and literary works but remains insufficiently centered in the official histories of the conflict. The famine\'s victims — most of them children — are the moral heart of the Biafran story.</p>';
+echo '<h2>Wole Soyinka (b. 1934)</h2>';
+echo '<p>Though Yoruba, Soyinka was imprisoned for two years by the federal government during the war for attempting to mediate between the sides. His memoir <em>The Man Died</em> (1972) is one of the most important literary documents of the period. His imprisonment illustrates that opposition to the federal government\'s conduct of the war was not confined to Igbo people.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/sources/">Sources</a>';
+echo '</div></div>';

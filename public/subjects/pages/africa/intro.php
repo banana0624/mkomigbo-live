@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Africa — continental context, parallel histories, and the connected world that shaped Igbo experience.</p>';
+echo '<h2>Africa and the Igbo</h2>';
+echo '<p>The Igbo are an African people — a statement so obvious it risks being overlooked. Understanding Igbo history, culture, and experience requires understanding Africa: the continent\'s geography, its pre-colonial civilizations, the Atlantic slave trade, colonization, independence, and the contemporary political landscape. Igbo experience is not isolated; it is embedded in and shaped by the broader African story.</p>';
+echo '<h2>Key Themes</h2>';
+echo '<ul>';
+echo '<li><strong>Pre-colonial Africa</strong> — the great kingdoms and empires: Mali, Songhai, Great Zimbabwe, Kongo, Benin, Oyo, Kanem-Bornu, Axum/Ethiopia, Ancient Egypt/Kemet. Africa\'s pre-colonial history is a history of sophisticated states, long-distance trade, and extraordinary cultural achievement.</li>';
+echo '<li><strong>The Atlantic Slave Trade</strong> — Africa\'s most catastrophic encounter with the modern world; 12.5 million people removed over 400 years; entire societies reorganized around the slave trade; consequences still shaping the continent.</li>';
+echo '<li><strong>Colonization</strong> — the Berlin Conference (1885) divided Africa among European powers; colonial borders cut across existing political and ethnic boundaries; colonization fundamentally restructured African economies, politics, and societies.</li>';
+echo '<li><strong>Independence Movements</strong> — from the 1950s onward; Ghana (1957) first; most of Africa independent by 1965; the legacies of colonization proved deeply difficult to overcome.</li>';
+echo '<li><strong>Contemporary Africa</strong> — the continent\'s extraordinary diversity; 1.4 billion people, 54 countries, 2,000+ languages; enormous economic potential combined with persistent structural challenges.</li>';
+echo '<li><strong>Pan-Africanism</strong> — the intellectual and political movement asserting African unity and the shared identity of African peoples worldwide; from DuBois and Garvey to Nkrumah and the African Union.</li>';
+echo '</ul>';
+echo '<h2>West Africa in Context</h2>';
+echo '<p>The Igbo homeland — southeastern Nigeria — sits within the West African forest belt, one of the most historically significant regions on earth. The Niger River system connected interior and coastal communities in trade networks stretching back thousands of years. The Bight of Biafra became one of the most active slaving zones in the Atlantic world. And West Africa today is home to over 400 million people — the most populous region of the continent.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/africa/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/africa/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/history/intro/">→ Igbo History</a>';
+echo '</div></div>';

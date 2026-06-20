@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">References and resources about African knowledge preservation and digital heritage.</p>';
+echo '<h2>On African Knowledge Preservation</h2>';
+echo '<ul>';
+echo '<li><strong>UNESCO</strong> — Convention for the Safeguarding of the Intangible Cultural Heritage (2003). The international framework for protecting oral traditions and living heritage.</li>';
+echo '<li><strong>Kwame Anthony Appiah</strong> — <em>In My Father\'s House: Africa in the Philosophy of Culture</em> (1992). Essential reading on African identity, culture, and the challenge of preservation.</li>';
+echo '<li><strong>Ngugi wa Thiong\'o</strong> — <em>Decolonising the Mind</em> (1986). On language, knowledge, and cultural power.</li>';
+echo '</ul>';
+echo '<h2>On Igbo Documentation</h2>';
+echo '<ul>';
+echo '<li><strong>M.M. Green</strong> — <em>Igbo Village Affairs</em> (1947). Early ethnographic record of Igbo community life.</li>';
+echo '<li><strong>Victor Uchendu</strong> — <em>The Igbo of Southeast Nigeria</em> (1965). Standard introductory anthropological account.</li>';
+echo '<li><strong>Nwachukwu-Agbada</strong> — various works on Igbo oral literature and proverbs.</li>';
+echo '</ul>';
+echo '<h2>Digital Heritage</h2>';
+echo '<ul>';
+echo '<li><strong>Internet Archive</strong> — archive.org — preserves digital content at risk of loss.</li>';
+echo '<li><strong>JSTOR Global Plants</strong> — model for open academic knowledge sharing.</li>';
+echo '<li><strong>Wikipedia Foundation</strong> — lessons in community-built knowledge commons.</li>';
+echo '</ul>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/about/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/about/overview/">Overview</a>';
+echo '</div></div>';

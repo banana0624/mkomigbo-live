@@ -9,7 +9,7 @@ class SubjectModel {
         $this->pdo = $pdo;
     }
 
-    public function getPublicSubjects($limit = 12) {
+    public function getPublicSubjects($limit = 100) {
         return fetchRows(
             $this->pdo,
             'subjects',

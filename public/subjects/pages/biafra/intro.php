@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The Republic of Biafra — its declaration, the war, the famine, and the memory that endures.</p>';
+echo '<h2>What Was Biafra?</h2>';
+echo '<p>Biafra was a secessionist state declared on May 30, 1967, in southeastern Nigeria. Led by Lt. Colonel Odumegwu Ojukwu, it encompassed the predominantly Igbo Eastern Region of Nigeria along with significant Ibibio, Efik, Ijaw, and Ogoni populations. It survived for thirty months before surrendering to Nigerian federal forces on January 15, 1970.</p>';
+echo '<p>The war that followed the declaration killed between one and three million people — the majority not from combat but from starvation, as the Nigerian federal government imposed a blockade that cut off food supplies to the Biafran heartland. Images of starving Biafran children shocked the world and triggered one of the first major international humanitarian media campaigns in history.</p>';
+echo '<h2>Why Biafra Happened</h2>';
+echo '<p>Biafra did not begin with the declaration of 1967. Its roots lay in the structure of Nigeria itself — a colonial creation that amalgamated deeply different peoples under a single administrative framework. The political crises of the 1960s — rigged elections, ethnic tension, military coups — created conditions in which Igbo people in northern Nigeria became targets of mass violence.</p>';
+echo '<p>In September and October 1966, Igbo people living in northern Nigeria were massacred in pogroms that killed between 10,000 and 30,000 people. Over a million fled south. The Aburi Accord of January 1967 — signed in Ghana between Gowon and Ojukwu — offered a confederal arrangement that might have prevented war. It was repudiated by the federal government under pressure from British and Soviet advisers.</p>';
+echo '<h2>The War</h2>';
+echo '<p>The war lasted from July 1967 to January 1970. Federal forces, better equipped and internationally supported, gradually compressed Biafran territory. The fall of Port Harcourt in 1968 cut off Biafra from the sea. The encirclement of the Biafran heartland created the conditions for mass starvation. International relief operations — including airlifts organized by the Red Cross and various NGOs — saved lives but were never sufficient to prevent catastrophe.</p>';
+echo '<h2>The Famine</h2>';
+echo '<p>The Biafran famine was not simply a consequence of war — it was, many historians argue, a deliberate instrument of it. The Nigerian federal government\'s blockade prevented food from reaching the Biafran civilian population. The resulting kwashiorkor — protein deficiency malnutrition — produced the images of swollen-bellied, stick-limbed children that became the defining humanitarian images of the 20th century. Estimates of famine deaths range from 500,000 to two million.</p>';
+echo '<h2>The End and Its Aftermath</h2>';
+echo '<p>Ojukwu fled to the Ivory Coast on January 11, 1970. His deputy, Philip Effiong, formally surrendered on January 15. Gowon declared "No Victor, No Vanquished" and promised reconciliation. In practice, the post-war settlement was deeply punitive: Igbo people found their bank accounts replaced with a flat 20-pound payment regardless of pre-war savings; Igbo civil servants lost seniority; Igbo property in other parts of Nigeria was not returned.</p>';
+echo '<h2>Memory and Meaning</h2>';
+echo '<p>Biafra never disappeared from Igbo consciousness. It shaped a generation\'s understanding of Nigeria, of Igbo identity, and of the relationship between the Igbo and the Nigerian state. The civil war anniversary (May 30 — Biafra Remembrance Day) is observed by millions. The IPOB movement keeps the question of Biafran sovereignty alive. Chimamanda Ngozi Adichie\'s novel <em>Half of a Yellow Sun</em> brought the memory to a global audience. The war remains unresolved — not militarily, but historically and morally.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/sources/">Sources</a>';
+echo '</div></div>';

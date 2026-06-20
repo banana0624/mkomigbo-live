@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The Igbo and African diaspora in the United Kingdom — history, community life, identity, and the British-Nigerian experience.</p>';
+echo '<h2>Igbo in the United Kingdom</h2>';
+echo '<p>The United Kingdom is home to one of the largest Igbo diaspora communities outside Nigeria — estimates range from 300,000 to 500,000 people of Nigerian origin in the UK, with a significant proportion of Igbo descent. Their presence spans over a century: from the first Nigerian students at British universities in the early 20th century, through the Windrush generation, post-civil war refugees, and the wave of professional and economic migration from the 1980s onward.</p>';
+echo '<h2>Historical Background</h2>';
+echo '<ul>';
+echo '<li><strong>Colonial connections</strong> — Britain colonized Nigeria from the 1850s to 1960; this relationship created the conditions for Nigerian migration to Britain</li>';
+echo '<li><strong>Early arrivals</strong> — Nigerian students including Nnamdi Azikiwe studied in Britain; the National Council of Nigeria and the Cameroons (NCNC) had branches in London</li>';
+echo '<li><strong>Post-war migration</strong> — Nigerians began arriving in larger numbers in the 1960s and 1970s as part of Commonwealth migration</li>';
+echo '<li><strong>Post-Biafra</strong> — the civil war and its aftermath drove many Igbo to Britain; some came as refugees, others as professionals and students</li>';
+echo '<li><strong>1980s–present</strong> — sustained migration driven by economic instability in Nigeria; Nigerian professionals, academics, entrepreneurs, and their families settled across the UK</li>';
+echo '</ul>';
+echo '<h2>Community Life</h2>';
+echo '<p>Nigerian and Igbo communities in the UK are organized through a dense network of associations: state unions (Imo State Union UK, Anambra State Association UK), town unions, professional associations, churches (particularly Pentecostal congregations), cultural organizations, and social media communities. These organizations provide mutual aid, cultural maintenance, and collective advocacy.</p>';
+echo '<h2>Igbo Identity in Britain</h2>';
+echo '<p>The British-Igbo experience raises complex questions about identity, belonging, and cultural transmission. Second-generation Igbo Britons navigate between British culture and Igbo tradition — sometimes fluently, sometimes with difficulty. Language maintenance (Igbo is not taught in British schools), cultural knowledge, and connection to "home" vary enormously. The growth of Afrobeats, Nollywood, and African cultural expression in British mainstream culture has created new opportunities for cultural pride and expression.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/uk/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/uk/topics/">Key Topics</a>';
+echo '</div></div>';

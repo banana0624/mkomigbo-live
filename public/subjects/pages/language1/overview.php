@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">The structure, history, and current state of the Igbo language.</p>';
+echo '<h2>Linguistic Classification</h2>';
+echo '<p>Igbo belongs to the Volta-Niger branch of the Niger-Congo language family. Its closest relatives include Igboid languages such as Ekpeye, Oguta, and Ika. More distantly, it is related to Yoruba and Edo. Igbo is not mutually intelligible with these related languages but shares grammatical features and some vocabulary.</p>';
+echo '<h2>Phonology</h2>';
+echo '<p>Igbo has a relatively simple consonant inventory but a complex tonal system. The language distinguishes high tone (marked with acute accent: á), low tone (marked with grave: à), and downstep. Vowel harmony — where vowels within a word must belong to the same phonological class — is a key feature of Igbo phonology shared with other Niger-Congo languages.</p>';
+echo '<h2>Grammar</h2>';
+echo '<p>Igbo is an isolating to agglutinative language with Subject-Verb-Object word order. Nouns do not inflect for gender. Verbs are marked for aspect (complete/incomplete action) rather than tense. The serial verb construction — where multiple verbs follow each other without conjunctions — is a distinctive feature: "o gara ulo zuo ihe" (she went home fetched something).</p>';
+echo '<h2>The Önwu Orthography</h2>';
+echo '<p>The standard Igbo orthography, adopted in 1961 and named after the town of Önwu where it was finalized, uses the Roman alphabet with eight additional characters: ị, ọ, ụ (for low vowels), ṅ (syllabic nasal), and the digraphs gb, kp, nw, ny for sounds not found in European languages. Tone marks are used in educational materials but often omitted in everyday writing.</p>';
+echo '<h2>Igbo in Education and Media</h2>';
+echo '<p>Igbo is a compulsory subject in schools in southeastern Nigeria. It is taught at university level at institutions including the University of Nigeria Nsukka (UNN), which has one of the strongest Igbo studies programs in the world. Igbo language broadcasting is carried by the Nigerian Broadcasting Corporation and several state radio stations. The Igbo-language newspaper tradition, though weakened, survives.</p>';
+echo '<h2>Revitalization Efforts</h2>';
+echo '<p>A new generation of language activists is working to reverse Igbo language decline. Projects include digital Igbo dictionaries, mobile learning apps, YouTube channels teaching Igbo, social media communities committed to Igbo-language communication, and community schools. The diaspora has been particularly active — Igbo communities in the UK, USA, and Canada run weekend language schools and cultural programmes.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/topics/">Key Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/sources/">Sources</a>';
+echo '</div></div>';

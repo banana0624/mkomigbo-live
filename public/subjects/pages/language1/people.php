@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Linguists, writers, and activists who shaped the Igbo language.</p>';
+echo '<h2>Onuora Nzekwu (1928–2020)</h2>';
+echo '<p>Novelist and early documenter of Igbo cultural and linguistic life. His novel <em>Wand of Noble Wood</em> (1961) is one of the first fictional works to document Igbo customs and language in detail for an international audience.</p>';
+echo '<h2>F.C. Ogbalu (1927–1980)</h2>';
+echo '<p>The most important figure in the standardization of written Igbo. Ogbalu chaired the committee that produced the Önwu orthography (1961) and wrote extensively on Igbo language, proverbs, and oral literature. His collection <em>Ilu Igbo</em> (Igbo Proverbs) remains the standard reference.</p>';
+echo '<h2>Chinua Achebe (1930–2013)</h2>';
+echo '<p>Though writing in English, Achebe\'s novels are saturated with Igbo linguistic structures, proverbs, and oral literature techniques. He demonstrated that English could carry Igbo thought, rhythm, and worldview — a linguistic achievement as much as a literary one. His essay "The African Writer and the English Language" (1964) is the essential text on this question.</p>';
+echo '<h2>Nkem Nwankwo (1936–2001)</h2>';
+echo '<p>Novelist and linguist who documented Igbo language and culture. Author of <em>Danda</em> (1964) — one of the earliest novels to capture the oral rhythm of Igbo speech in written form.</p>';
+echo '<h2>Kamalu Uchenna (contemporary)</h2>';
+echo '<p>Creator of Ndebe — the indigenous Igbo script developed in 2009. Ndebe represents the most ambitious modern attempt to give the Igbo language a writing system that does not derive from the Roman alphabet. Its adoption remains a work in progress but it has generated significant interest among language revitalization communities.</p>';
+echo '<h2>University of Nigeria Nsukka — Igbo Studies Department</h2>';
+echo '<p>The institutional centre of Igbo linguistic scholarship. The UNN Igbo department has produced generations of linguists, literature scholars, and language educators. Its dictionary projects, oral literature archives, and language teaching programmes are the most important institutional resources for Igbo language study.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/topics/">Topics</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/language1/sources/">Sources</a>';
+echo '</div></div>';

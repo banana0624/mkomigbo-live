@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+echo '<div class="mk-prose">';
+echo '<p class="mk-muted" style="margin-top:0;">Key topics in the study of Biafra — causes, conduct, memory, and legacy.</p>';
+echo '<h2>The Pogroms of 1966 — Root Cause</h2>';
+echo '<p>Any honest account of Biafra must begin with the mass killing of Igbo in northern Nigeria in 1966. These events — largely absent from Nigerian official history — are the immediate cause of Biafran secession. Igbo people who had lived in the north for decades, who had built businesses and raised families there, were killed in their tens of thousands. The federal government\'s failure to protect them or bring perpetrators to justice made the case for a separate state compelling.</p>';
+echo '<h2>The Blockade and Famine — A Deliberate Policy?</h2>';
+echo '<p>The most contested question of the war is whether the famine was deliberate. The federal government denied food relief aircraft landing rights. It described relief operations as Biafran propaganda. Chief Obafemi Awolowo, federal Commissioner for Finance, was widely reported to have said that starvation was a legitimate weapon of war. The Nigerian government denied this. The famine killed far more people than combat. Whether it was deliberate policy or callous indifference remains disputed — and matters enormously for how the war is judged.</p>';
+echo '<h2>Britain\'s Role</h2>';
+echo '<p>Britain supplied the federal government with arms, diplomatic support, and intelligence throughout the war. The Labour government of Harold Wilson maintained that Nigeria\'s territorial integrity was essential. British Petroleum and Shell\'s oil interests in the Niger Delta — potentially in Biafran territory — were a significant factor. Britain blocked international pressure for a ceasefire. Its role remains a source of deep bitterness in Igbo memory and was the subject of Parliamentary debate and declassified files released in the 2000s.</p>';
+echo '<h2>Biafran Propaganda and International Opinion</h2>';
+echo '<p>The Biafran government ran one of the most sophisticated propaganda operations of any 20th-century conflict. Working with the Swiss PR firm Markpress, it distributed photographs of starving children to international media, briefed journalists, and cultivated support from celebrities including John Lennon (who returned his MBE partly in protest at British policy on Biafra). The operation successfully shaped international opinion — without winning the war.</p>';
+echo '<h2>The Role of Oil</h2>';
+echo '<p>The discovery of oil in the Niger Delta in 1958 fundamentally changed the stakes of Nigerian politics. Much of that oil lay in or near former Biafran territory. The relationship between oil wealth, federal revenue, and the political position of southeastern Nigeria has shaped every aspect of post-war Nigerian politics. The communities of the Niger Delta — Ijaw, Ogoni, Urhobo — who live on the oil but receive little of its benefit, continue to bear the consequences of decisions made in the 1960s.</p>';
+echo '<h2>Memory and Commemoration</h2>';
+echo '<p>May 30 — the date of Biafra\'s declaration — is observed as Biafra Remembrance Day (or Biafra Heroes Day) by millions of Igbo people worldwide. The Nigerian government has banned public commemorations. IPOB organizes annual sit-at-home strikes in southeastern Nigeria on this date. The tension between official Nigerian history (which minimizes the war and its causes) and Igbo memory (which centers it) is one of the defining fault lines in contemporary Nigerian politics.</p>';
+echo '<h2>The Question of Justice</h2>';
+echo '<p>No truth and reconciliation process has ever been conducted. No perpetrators of the 1966 pogroms have been tried. No compensation has been paid to victims of the famine or the post-war economic discrimination. The structural causes of the war — ethnic federalism, resource control, minority rights — have never been resolved. For many Igbo people, the war did not end in 1970; it merely changed form.</p>';
+echo '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;">';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/intro/">Introduction</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/overview/">Overview</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/people/">People</a>';
+echo '<a class="mk-btn mk-btn--ghost" href="/subjects/biafra/sources/">Sources</a>';
+echo '</div></div>';
